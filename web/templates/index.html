@@ -1,0 +1,109 @@
+{{template "base" .}}
+
+{{define "title"}}Главная — Храм «Державная»{{end}}
+
+{{define "content"}}
+<main class="max-w-[1440px] mx-auto px-4 py-8">
+    <div class="flex flex-col md:flex-row gap-12 items-start">
+
+        <aside class="w-full md:w-64 shrink-0 sticky top-24">
+            {{template "menu" .}}
+        </aside>
+
+        <div class="flex-1 space-y-12">
+
+            <section class="relative bg-white/40 p-8 md:p-12 rounded-3xl border border-church-gold/10 shadow-sm overflow-hidden">
+
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_25%,rgba(214,184,111,0.12)_0%,transparent_60%)] pointer-events-none"></div>
+
+                <div class="relative z-10 flex flex-col items-center text-center w-full">
+
+                    <div class="relative mb-10 w-full flex flex-col items-center justify-center min-h-[180px]">
+
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <svg class="w-[350px] h-[350px] md:w-[550px] md:h-[550px] opacity-40" viewBox="0 0 200 200">
+                                <defs>
+                                    <radialGradient id="rayGrad" cx="50%" cy="50%" r="50%">
+                                        <stop offset="0%" stop-color="#D6B86F" stop-opacity="1" />
+                                        <stop offset="100%" stop-color="#D6B86F" stop-opacity="0" />
+                                    </radialGradient>
+                                </defs>
+                                <g stroke="url(#rayGrad)" stroke-width="1.2">
+                                    <line x1="100" y1="100" x2="100" y2="0" transform="rotate(0 100 100)" />
+                                    <line x1="100" y1="100" x2="100" y2="0" transform="rotate(15 100 100)" />
+                                    <line x1="100" y1="100" x2="100" y2="0" transform="rotate(30 100 100)" />
+                                    <line x1="100" y1="100" x2="100" y2="0" transform="rotate(45 100 100)" />
+                                    <line x1="100" y1="100" x2="100" y2="0" transform="rotate(60 100 100)" />
+                                    <line x1="100" y1="100" x2="100" y2="0" transform="rotate(75 100 100)" />
+                                    <line x1="100" y1="100" x2="100" y2="0" transform="rotate(90 100 100)" />
+                                    <line x1="100" y1="100" x2="100" y2="0" transform="rotate(105 100 100)" />
+                                    <line x1="100" y1="100" x2="100" y2="0" transform="rotate(120 100 100)" />
+                                    <line x1="100" y1="100" x2="100" y2="0" transform="rotate(135 100 100)" />
+                                    <line x1="100" y1="100" x2="100" y2="0" transform="rotate(150 100 100)" />
+                                    <line x1="100" y1="100" x2="100" y2="0" transform="rotate(165 100 100)" />
+                                    <line x1="100" y1="100" x2="100" y2="0" transform="rotate(180 100 100)" />
+                                    <line x1="100" y1="100" x2="100" y2="0" transform="rotate(195 100 100)" />
+                                    <line x1="100" y1="100" x2="100" y2="0" transform="rotate(210 100 100)" />
+                                    <line x1="100" y1="100" x2="100" y2="0" transform="rotate(225 100 100)" />
+                                    <line x1="100" y1="100" x2="100" y2="0" transform="rotate(240 100 100)" />
+                                    <line x1="100" y1="100" x2="100" y2="0" transform="rotate(255 100 100)" />
+                                    <line x1="100" y1="100" x2="100" y2="0" transform="rotate(270 100 100)" />
+                                    <line x1="100" y1="100" x2="100" y2="0" transform="rotate(285 100 100)" />
+                                    <line x1="100" y1="100" x2="100" y2="0" transform="rotate(300 100 100)" />
+                                    <line x1="100" y1="100" x2="100" y2="0" transform="rotate(315 100 100)" />
+                                    <line x1="100" y1="100" x2="100" y2="0" transform="rotate(330 100 100)" />
+                                    <line x1="100" y1="100" x2="100" y2="0" transform="rotate(345 100 100)" />
+                                </g>
+                            </svg>
+                        </div>
+
+                        <h2 class="relative z-10 text-xs md:text-sm uppercase tracking-[0.3em] text-church-wine mb-3 opacity-70">
+                            Храм во имя иконы Божией Матери
+                        </h2>
+                        <h1 class="relative z-10 text-5xl md:text-7xl font-serif text-church-wine mb-4 drop-shadow-md">
+                            «ДЕРЖАВНАЯ»
+                        </h1>
+                        <div class="relative z-10 flex justify-center items-center gap-4">
+                            <div class="w-16 md:w-24 h-[1px] bg-gradient-to-l from-church-gold to-transparent"></div>
+                            <div class="text-church-gold text-xl">✦</div>
+                            <div class="w-16 md:w-24 h-[1px] bg-gradient-to-r from-church-gold to-transparent"></div>
+                        </div>
+                    </div>
+
+                    <div class="w-full max-w-[320px] aspect-[3/4] rounded-xl shadow-2xl border-4 border-church-gold/20 overflow-hidden mb-8 transform transition hover:scale-[1.01] relative z-20">
+                        <img src="{{.MainIconURL}}" alt="Икона «Державная»" class="w-full h-full object-cover">
+                    </div>
+
+                    <div class="max-w-2xl">
+                        <p class="text-church-gold italic text-2xl mb-6 font-serif">«Добро пожаловать в наш приход»</p>
+                        <div class="text-gray-700 text-lg leading-relaxed opacity-90 font-serif border-t border-church-gold/10 pt-6">
+                            Наш храм — это место молитвы и утешения. Мы рады приветствовать вас на обновленном сайте.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-2xl text-church-wine uppercase tracking-widest border-l-4 border-church-wine pl-4 mb-8 font-sans">События прихода</h2>
+                <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+                    <div class="bg-white/40 p-7 rounded-3xl border border-church-gold/20 shadow-sm transition hover:shadow-md hover:bg-white/60 group">
+                        <span class="text-church-wine/60 text-sm font-sans block mb-2">15 апреля 2026</span>
+                        <h3 class="text-xl font-bold text-church-wine mt-2 mb-4 group-hover:text-red-900 transition-colors">
+                            Сретение Господне
+                        </h3>
+                        <p class="text-gray-800 text-base leading-relaxed mb-6 font-serif opacity-90">
+                            Праздничное богослужение и встреча с прихожанами в честь великого двунадесятого праздника...
+                        </p>
+                        <a href="#" class="inline-block text-church-wine font-bold text-xs uppercase tracking-widest border-b border-church-wine/30 hover:border-church-wine transition-all">
+                            Подробнее →
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            {{template "wisdom_quote" .}}
+
+        </div>
+    </div>
+</main>
+{{end}}

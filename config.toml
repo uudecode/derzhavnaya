@@ -1,0 +1,27 @@
+[app]
+port = 8080
+default_lang = "ru"
+supported_langs = ["ru", "fr", "en"]
+
+[database]
+host = "localhost"
+port = 5432
+name = "derzhavnaya"
+user = "postgres"
+password = "localpassword"
+sslmode = "disable"
+max_open_conns = 20
+max_idle_conns = 5
+conn_max_lifetime = "30m"
+
+[s3]
+region = "ru-spb-1"
+endpoint = "http://localhost:3900"
+bucket = "media.derzhavnaya.spb.ru"
+public_base_url = "https://media.derzhavnaya.spb.ru"
+access_key_id = "local_key"
+secret_access_key = "local_secret"
+
+[initial_admin]
+email = "kek@lol.me"
+passwd = "q1"
