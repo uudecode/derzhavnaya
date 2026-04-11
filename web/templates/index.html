@@ -6,7 +6,7 @@
 <main class="max-w-[1440px] mx-auto px-4 py-8">
     <div class="flex flex-col md:flex-row gap-12 items-start">
 
-        <aside class="w-full md:w-64 shrink-0 sticky top-24">
+        <aside class="w-full md:w-64 shrink-0 md:sticky md:top-24 z-20">
             {{template "menu" .}}
         </aside>
 
@@ -14,7 +14,7 @@
 
             <section class="relative bg-white/40 p-8 md:p-12 rounded-3xl border border-church-gold/10 shadow-sm overflow-hidden flex flex-col items-center">
 
-                <div class="absolute top-[-50px] left-1/2 -translate-x-1/2 w-[800px] h-[800px] pointer-events-none opacity-20"
+                <div class="absolute top-[-50px] left-1/2 -translate-x-1/2 w-[300px] h-[300px] md:w-[800px] md:h-[800px] pointer-events-none opacity-20"
                      style="background: repeating-conic-gradient(from 0deg, #D6B86F 0deg 1deg, transparent 1deg 15deg);
                 mask-image: radial-gradient(circle, black 20%, transparent 70%);
                 -webkit-mask-image: radial-gradient(circle, black 20%, transparent 70%);">
@@ -25,7 +25,7 @@
                         <h2 class="text-xs md:text-sm uppercase tracking-[0.3em] text-church-wine mb-3 opacity-70">
                             Храм во имя иконы Божией Матери
                         </h2>
-                        <h1 class="text-5xl md:text-7xl font-serif text-church-wine mb-4 drop-shadow-md">
+                        <h1 class="text-3xl sm:text-5xl md:text-7xl font-serif text-church-wine mb-4 drop-shadow-md break-words text-center">
                             «ДЕРЖАВНАЯ»
                         </h1>
                         <div class="flex justify-center items-center gap-4">

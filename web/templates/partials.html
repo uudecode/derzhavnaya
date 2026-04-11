@@ -12,12 +12,14 @@
 {{end}}
 
 {{define "menu"}}
-<ul class="space-y-1 font-sans uppercase tracking-wider text-sm">
-    <li><a href="/" class="flex items-center p-3 bg-church-wine text-white rounded-lg shadow-md transition-all">🏠 Главная</a></li>
-    <li><a href="/news" class="flex items-center p-3 hover:bg-white hover:shadow-sm rounded-lg transition-all group border border-transparent hover:border-church-wine/20 text-gray-700">📰 Новости</a></li>
-    <li><a href="/gallery" class="flex items-center p-3 hover:bg-white hover:shadow-sm rounded-lg transition-all text-gray-700">📸 Фотогалерея</a></li>
-    <li><a href="/lib" class="flex items-center p-3 hover:bg-white hover:shadow-sm rounded-lg transition-all text-gray-700">📖 Библиотека</a></li>
-    <li><a href="/schedule" class="flex items-center p-3 hover:bg-white hover:shadow-sm rounded-lg transition-all text-gray-700">🕯 Расписание</a></li>
+<ul class="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-col gap-2 font-sans uppercase tracking-wider text-[10px] sm:text-xs md:text-sm">
+    <li class="col-span-2 md:col-span-1">
+        <a href="/" class="flex items-center justify-center md:justify-start p-3 bg-church-wine text-white rounded-lg shadow-md transition-all">🏠 Главная</a>
+    </li>
+    <li><a href="/news" class="flex items-center justify-center md:justify-start p-3 bg-white/50 md:bg-transparent hover:bg-white rounded-lg border border-church-wine/10 text-gray-700">📰 Новости</a></li>
+    <li><a href="/gallery" class="flex items-center justify-center md:justify-start p-3 bg-white/50 md:bg-transparent hover:bg-white rounded-lg border border-church-wine/10 text-gray-700">📸 Фото</a></li>
+    <li><a href="/lib" class="flex items-center justify-center md:justify-start p-3 bg-white/50 md:bg-transparent hover:bg-white rounded-lg border border-church-wine/10 text-gray-700">📖 Библиотека</a></li>
+    <li><a href="/schedule" class="flex items-center justify-center md:justify-start p-3 bg-white/50 md:bg-transparent hover:bg-white rounded-lg border border-church-wine/10 text-gray-700">🕯 График</a></li>
 </ul>
 {{end}}
 
