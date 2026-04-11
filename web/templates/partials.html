@@ -1,5 +1,5 @@
 {{define "header"}}
-<header class="h-16 border-b border-church-gold/20 flex items-center justify-between px-8 bg-church-wine backdrop-blur-sm sticky top-0 z-50 font-sans text-white">
+<header class="h-16 border-b border-church-gold/20 flex items-center justify-between px-4 bg-church-wine backdrop-blur-sm sticky top-0 z-50 font-sans text-white">
     <div class="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-church-beige/80">
         Санкт-Петербургская епархия
     </div>
@@ -12,14 +12,12 @@
 {{end}}
 
 {{define "menu"}}
-<ul class="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-col gap-2 font-sans uppercase tracking-wider text-[10px] sm:text-xs md:text-sm">
-    <li class="col-span-2 md:col-span-1">
-        <a href="/" class="flex items-center justify-center md:justify-start p-3 bg-church-wine text-white rounded-lg shadow-md transition-all">🏠 Главная</a>
-    </li>
-    <li><a href="/news" class="flex items-center justify-center md:justify-start p-3 bg-white/50 md:bg-transparent hover:bg-white rounded-lg border border-church-wine/10 text-gray-700">📰 Новости</a></li>
-    <li><a href="/gallery" class="flex items-center justify-center md:justify-start p-3 bg-white/50 md:bg-transparent hover:bg-white rounded-lg border border-church-wine/10 text-gray-700">📸 Фото</a></li>
-    <li><a href="/lib" class="flex items-center justify-center md:justify-start p-3 bg-white/50 md:bg-transparent hover:bg-white rounded-lg border border-church-wine/10 text-gray-700">📖 Библиотека</a></li>
-    <li><a href="/schedule" class="flex items-center justify-center md:justify-start p-3 bg-white/50 md:bg-transparent hover:bg-white rounded-lg border border-church-wine/10 text-gray-700">🕯 График</a></li>
+<ul class="flex flex-col gap-1 font-sans uppercase tracking-wider text-sm relative h-auto">
+    <li><a href="/" class="flex items-center p-3 bg-church-wine text-white rounded-lg shadow-md">🏠 Главная</a></li>
+    <li><a href="/news" class="flex items-center p-3 text-gray-700 hover:bg-white rounded-lg border border-transparent">📰 Новости</a></li>
+    <li><a href="/gallery" class="flex items-center p-3 text-gray-700 hover:bg-white rounded-lg border border-transparent">📸 Фотогалерея</a></li>
+    <li><a href="/lib" class="flex items-center p-3 text-gray-700 hover:bg-white rounded-lg border border-transparent">📖 Библиотека</a></li>
+    <li><a href="/schedule" class="flex items-center p-3 text-gray-700 hover:bg-white rounded-lg border border-transparent">🕯 Расписание</a></li>
 </ul>
 {{end}}
 

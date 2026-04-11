@@ -6,13 +6,15 @@
 <main class="max-w-[1440px] mx-auto px-4 py-8">
     <div class="flex flex-col md:flex-row gap-12 items-start">
 
-        <aside class="w-full md:w-64 shrink-0 md:sticky md:top-24 z-20">
+        <!--        <aside class="w-full md:w-64 shrink-0 md:sticky md:top-24 z-20">-->
+        <aside class="relative w-full md:w-64 shrink-0 md:sticky md:top-24 z-20">
             {{template "menu" .}}
         </aside>
 
         <div class="flex-1 space-y-12">
 
-            <section class="relative bg-white/40 p-8 md:p-12 rounded-3xl border border-church-gold/10 shadow-sm overflow-hidden flex flex-col items-center">
+            <section
+                    class="relative bg-white/40 p-8 md:p-12 rounded-3xl border border-church-gold/10 shadow-sm overflow-hidden flex flex-col items-center">
 
                 <div class="absolute top-[-50px] left-1/2 -translate-x-1/2 w-[300px] h-[300px] md:w-[800px] md:h-[800px] pointer-events-none opacity-20"
                      style="background: repeating-conic-gradient(from 0deg, #D6B86F 0deg 1deg, transparent 1deg 15deg);
@@ -48,7 +50,8 @@
                 </div>
             </section>
             <section>
-                <h2 class="text-2xl text-church-wine uppercase tracking-widest border-l-4 border-church-wine pl-4 mb-8 font-sans">События прихода</h2>
+                <h2 class="text-2xl text-church-wine uppercase tracking-widest border-l-4 border-church-wine pl-4 mb-8 font-sans">
+                    События прихода</h2>
                 <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
                     <div class="bg-white/40 p-7 rounded-3xl border border-church-gold/20 shadow-sm transition hover:shadow-md hover:bg-white/60 group">
                         <span class="text-church-wine/60 text-sm font-sans block mb-2">15 апреля 2026</span>
@@ -58,7 +61,8 @@
                         <p class="text-gray-800 text-base leading-relaxed mb-6 font-serif opacity-90">
                             Праздничное богослужение и встреча с прихожанами в честь великого двунадесятого праздника...
                         </p>
-                        <a href="#" class="inline-block text-church-wine font-bold text-xs uppercase tracking-widest border-b border-church-wine/30 hover:border-church-wine transition-all">
+                        <a href="#"
+                           class="inline-block text-church-wine font-bold text-xs uppercase tracking-widest border-b border-church-wine/30 hover:border-church-wine transition-all">
                             Подробнее →
                         </a>
                     </div>
