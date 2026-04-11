@@ -44,7 +44,7 @@ func main() {
 		log.Fatal().Err(err).Msg("database bootstrap failed")
 	}
 	defer pool.Close()
-	srv := server.NewServer(cfg)
+	srv := server.NewServer(cfg, pool)
 	log.Info().Msgf("Starting server on :%d", cfg.App.Port)
 	if err := http.ListenAndServe(fmt.Sprintf(":%d", cfg.App.Port), srv.Routes()); err != nil {
 		log.Fatal().Err(err).Msg("Server failed to start")

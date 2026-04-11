@@ -8,6 +8,16 @@ import (
 	"github.com/jackc/pgx/v5/pgtype"
 )
 
+type WebMenuItem struct {
+	ID        pgtype.UUID
+	Position  int16
+	Label     string
+	Icon      string
+	Url       string
+	IsActive  bool
+	CreatedAt pgtype.Timestamptz
+}
+
 type WebSession struct {
 	ID        string
 	UserID    pgtype.UUID

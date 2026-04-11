@@ -18,3 +18,8 @@ WHERE s.id = $1 AND s.expires_at > NOW();
 INSERT INTO web.users (email, password, role, full_name)
 VALUES ($1, $2, 'admin', 'System Administrator')
     ON CONFLICT (email) DO NOTHING;
+
+-- name: GetActiveMenuItems :many
+SELECT * FROM web.menu_item
+WHERE is_active = true
+ORDER BY position ASC;

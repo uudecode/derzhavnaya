@@ -1,23 +1,54 @@
 {{define "header"}}
-<header class="h-16 border-b border-church-gold/20 flex items-center justify-between px-4 bg-church-wine backdrop-blur-sm sticky top-0 z-50 font-sans text-white">
+<header class="h-16 border-b border-church-gold/20 flex items-center justify-between px-4 md:px-8 bg-church-wine backdrop-blur-sm sticky top-0 z-50 font-sans text-white">
     <div class="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-church-beige/80">
         Санкт-Петербургская епархия
     </div>
-    <div class="flex gap-4 text-sm uppercase tracking-tighter">
-        <a href="#" class="font-bold border-b-2 border-church-gold text-church-gold">RU</a>
-        <a href="#" class="hover:text-church-gold transition opacity-50 text-church-beige/50">EN</a>
-        <a href="#" class="hover:text-church-gold transition opacity-50 text-church-beige/50">FR</a>
+
+    <div class="flex items-center gap-6">
+        <div class="text-xs uppercase tracking-wider border-x border-white/10 px-4 py-1">
+            {{if .User}}
+            <div class="flex items-center gap-3">
+                <span class="text-church-gold/90">☦ {{.User.FullName}}</span>
+                <form action="/logout" method="POST" class="inline">
+                    <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">
+                    <button type="submit" class="hover:text-church-gold transition-colors opacity-70 hover:opacity-100">Выйти</button>
+                </form>
+            </div>
+            {{else}}
+            <a href="/login" class="hover:text-church-gold transition-colors flex items-center gap-1">
+                🔑 Войти
+            </a>
+            {{end}}
+        </div>
+
+        <div class="hidden sm:flex gap-4 text-sm uppercase tracking-tighter">
+            <a href="#" class="font-bold border-b-2 border-church-gold text-church-gold">RU</a>
+            <a href="#" class="opacity-50 text-church-beige/50">EN</a>
+            <a href="#" class="opacity-50 text-church-beige/50">FR</a>
+        </div>
     </div>
 </header>
 {{end}}
 
 {{define "menu"}}
 <ul class="flex flex-col gap-1 font-sans uppercase tracking-wider text-sm relative h-auto">
-    <li><a href="/" class="flex items-center p-3 bg-church-wine text-white rounded-lg shadow-md">🏠 Главная</a></li>
-    <li><a href="/news" class="flex items-center p-3 text-gray-700 hover:bg-white rounded-lg border border-transparent">📰 Новости</a></li>
-    <li><a href="/gallery" class="flex items-center p-3 text-gray-700 hover:bg-white rounded-lg border border-transparent">📸 Фотогалерея</a></li>
-    <li><a href="/lib" class="flex items-center p-3 text-gray-700 hover:bg-white rounded-lg border border-transparent">📖 Библиотека</a></li>
-    <li><a href="/schedule" class="flex items-center p-3 text-gray-700 hover:bg-white rounded-lg border border-transparent">🕯 Расписание</a></li>
+    {{$current := .CurrentPath}}
+    {{range .MenuItems}}
+    <li>
+        <a href="{{.Url}}"
+           class="flex items-center p-3 rounded-lg transition-all
+           {{if eq .Url $current}}
+                bg-church-wine text-white shadow-md
+           {{else}}
+                text-gray-700 hover:bg-white border border-transparent
+           {{end}}">
+            {{if .Icon}}<span class="mr-2">{{.Icon}}</span>{{end}}
+            {{.Label}}
+        </a>
+    </li>
+    {{else}}
+    <p>Меню временно пусто</p>
+    {{end}}
 </ul>
 {{end}}
 

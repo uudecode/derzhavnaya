@@ -51,6 +51,40 @@ func (q *Queries) CreateSession(ctx context.Context, arg CreateSessionParams) (W
 	return i, err
 }
 
+const getActiveMenuItems = `-- name: GetActiveMenuItems :many
+SELECT id, position, label, icon, url, is_active, created_at FROM web.menu_item
+WHERE is_active = true
+ORDER BY position ASC
+`
+
+func (q *Queries) GetActiveMenuItems(ctx context.Context) ([]WebMenuItem, error) {
+	rows, err := q.db.Query(ctx, getActiveMenuItems)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var items []WebMenuItem
+	for rows.Next() {
+		var i WebMenuItem
+		if err := rows.Scan(
+			&i.ID,
+			&i.Position,
+			&i.Label,
+			&i.Icon,
+			&i.Url,
+			&i.IsActive,
+			&i.CreatedAt,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
 const getUserByEmail = `-- name: GetUserByEmail :one
 SELECT id, email, password, full_name, role, created_at FROM web.users
 WHERE email = $1 LIMIT 1

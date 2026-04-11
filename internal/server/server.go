@@ -2,6 +2,7 @@ package server
 
 import (
 	"Derzhavnaya/internal/config"
+	"Derzhavnaya/internal/db"
 	"Derzhavnaya/web"
 	"html/template"
 	"io/fs"
@@ -9,17 +10,24 @@ import (
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
+	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/rs/zerolog/log"
 )
 
 type Server struct {
-	cfg *config.Config
-	// сюда же потом добавим пул базы: db *pgxpool.Pool
+	cfg  *config.Config
+	tmpl *template.Template
+	db   *db.Queries
+	pool *pgxpool.Pool
 }
 
-func NewServer(cfg *config.Config) *Server {
+func NewServer(cfg *config.Config, pool *pgxpool.Pool) *Server {
+	tmpl := template.Must(template.New("").ParseFS(web.Templates, "templates/*.html"))
 	return &Server{
-		cfg: cfg,
+		cfg:  cfg,
+		tmpl: tmpl,
+		pool: pool,
+		db:   db.New(pool),
 	}
 }
 
@@ -42,19 +50,18 @@ func (s *Server) Routes() *chi.Mux {
 }
 
 func (s *Server) handleIndex(w http.ResponseWriter, r *http.Request) {
-	tmpl, err := template.ParseFS(web.Templates, "templates/*.html")
+	menuItems, err := s.db.GetActiveMenuItems(r.Context())
 	if err != nil {
-		log.Error().Err(err).Msg("failed to parse templates")
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
+		log.Error().Err(err).Msg("failed to fetch menu")
 	}
 
 	data := map[string]any{
 		"MainIconURL": s.cfg.S3.PublicBaseURL + "/icons/derzhavnaya_main.jpg",
+		"MenuItems":   menuItems,
+		"CurrentPath": "/",
 	}
 
-	// 2. Явно говорим, какой шаблон основной
-	err = tmpl.ExecuteTemplate(w, "index.html", data)
+	err = s.tmpl.ExecuteTemplate(w, "index.html", data)
 	if err != nil {
 		log.Error().Err(err).Msg("template execution failed")
 	}
