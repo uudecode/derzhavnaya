@@ -5,6 +5,8 @@
 package db
 
 import (
+	"time"
+
 	"github.com/jackc/pgx/v5/pgtype"
 )
 
@@ -15,14 +17,14 @@ type WebMenuItem struct {
 	Icon      string
 	Url       string
 	IsActive  bool
-	CreatedAt pgtype.Timestamptz
+	CreatedAt time.Time
 }
 
 type WebSession struct {
 	ID        string
 	UserID    pgtype.UUID
-	ExpiresAt pgtype.Timestamptz
-	CreatedAt pgtype.Timestamptz
+	ExpiresAt time.Time
+	CreatedAt time.Time
 }
 
 type WebUser struct {
@@ -31,5 +33,5 @@ type WebUser struct {
 	Password  string
 	FullName  pgtype.Text
 	Role      string
-	CreatedAt pgtype.Timestamptz
+	CreatedAt time.Time
 }

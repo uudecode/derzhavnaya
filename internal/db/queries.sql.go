@@ -7,6 +7,7 @@ package db
 
 import (
 	"context"
+	"time"
 
 	"github.com/jackc/pgx/v5/pgtype"
 )
@@ -36,7 +37,7 @@ VALUES ($1, $2, $3)
 type CreateSessionParams struct {
 	ID        string
 	UserID    pgtype.UUID
-	ExpiresAt pgtype.Timestamptz
+	ExpiresAt time.Time
 }
 
 func (q *Queries) CreateSession(ctx context.Context, arg CreateSessionParams) (WebSession, error) {
@@ -49,6 +50,15 @@ func (q *Queries) CreateSession(ctx context.Context, arg CreateSessionParams) (W
 		&i.CreatedAt,
 	)
 	return i, err
+}
+
+const deleteSession = `-- name: DeleteSession :exec
+DELETE FROM  web.sessions WHERE id = $1
+`
+
+func (q *Queries) DeleteSession(ctx context.Context, id string) error {
+	_, err := q.db.Exec(ctx, deleteSession, id)
+	return err
 }
 
 const getActiveMenuItems = `-- name: GetActiveMenuItems :many

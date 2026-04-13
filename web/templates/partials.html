@@ -8,10 +8,13 @@
         <div class="text-xs uppercase tracking-wider border-x border-white/10 px-4 py-1">
             {{if .User}}
             <div class="flex items-center gap-3">
-                <span class="text-church-gold/90">☦ {{.User.FullName}}</span>
+                <span class="text-church-gold/90">👤 {{.User.FullName.String}}</span>
                 <form action="/logout" method="POST" class="inline">
                     <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">
-                    <button type="submit" class="hover:text-church-gold transition-colors opacity-70 hover:opacity-100">Выйти</button>
+                    <button type="submit" class="bg-transparent p-0 m-0 border-none cursor-pointer flex items-center gap-1
+    text-xs uppercase tracking-wider text-white hover:text-church-gold transition-colors opacity-70 hover:opacity-100">
+                        <span>🚪</span>Выйти
+                    </button>
                 </form>
             </div>
             {{else}}

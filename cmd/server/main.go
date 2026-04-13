@@ -2,7 +2,7 @@ package main
 
 import (
 	"Derzhavnaya/internal/db"
-	"Derzhavnaya/internal/server"
+	"Derzhavnaya/internal/web/server"
 	"context"
 	"fmt"
 	"net/http"

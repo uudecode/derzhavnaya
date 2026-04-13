@@ -23,3 +23,6 @@ VALUES ($1, $2, 'admin', 'System Administrator')
 SELECT * FROM web.menu_item
 WHERE is_active = true
 ORDER BY position ASC;
+
+-- name: DeleteSession :exec
+DELETE FROM  web.sessions WHERE id = $1;
