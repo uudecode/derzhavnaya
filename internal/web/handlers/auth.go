@@ -19,7 +19,14 @@ type AuthHandler struct {
 }
 
 func (h *AuthHandler) LoginGet(w http.ResponseWriter, r *http.Request) {
-	h.Renderer.Render(w, r, "login.html", nil)
+	backURL := r.Referer()
+	if backURL == "" {
+		backURL = "/"
+	}
+
+	h.Renderer.Render(w, r, "login.html", map[string]any{
+		"BackURL": backURL,
+	})
 }
 
 func (h *AuthHandler) LoginPost(w http.ResponseWriter, r *http.Request) {

@@ -5,24 +5,27 @@
     </div>
 
     <div class="flex items-center gap-6">
+        {{if ne .CurrentPath "/login"}}
         <div class="text-xs uppercase tracking-wider border-x border-white/10 px-4 py-1">
-            {{if .User}}
-            <div class="flex items-center gap-3">
-                <span class="text-church-gold/90">👤 {{.User.FullName.String}}</span>
-                <form action="/logout" method="POST" class="inline">
-                    <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">
-                    <button type="submit" class="bg-transparent p-0 m-0 border-none cursor-pointer flex items-center gap-1
-    text-xs uppercase tracking-wider text-white hover:text-church-gold transition-colors opacity-70 hover:opacity-100">
-                        <span>🚪</span>Выйти
-                    </button>
-                </form>
-            </div>
-            {{else}}
-            <a href="/login" class="hover:text-church-gold transition-colors flex items-center gap-1">
-                🔑 Войти
-            </a>
-            {{end}}
+                {{if .User}}
+                <div class="flex items-center gap-3">
+                    <span class="text-church-gold/90">👤 {{.User.FullName.String}}</span>
+                    <form action="/logout" method="POST" class="inline">
+                        <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">
+                        <button type="submit" class="bg-transparent p-0 m-0 border-none cursor-pointer flex items-center gap-1
+        text-xs uppercase tracking-wider text-white hover:text-church-gold transition-colors opacity-70 hover:opacity-100">
+                            <span>🚪</span>Выйти
+                        </button>
+                    </form>
+                </div>
+                {{else}}
+
+                <a href="/login" class="hover:text-church-gold transition-colors flex items-center gap-1">
+                    🔑 Войти
+                </a>
+                {{end}}
         </div>
+        {{end}}
 
         <div class="hidden sm:flex gap-4 text-sm uppercase tracking-tighter">
             <a href="#" class="font-bold border-b-2 border-church-gold text-church-gold">RU</a>
@@ -56,8 +59,10 @@
 {{end}}
 
 {{define "wisdom_quote"}}
-<section class="bg-white/40 border-2 border-dashed border-church-gold/30 p-8 rounded-3xl italic text-center text-lg text-gray-700 font-serif">
-    <p class="mb-4 text-xl md:text-2xl leading-snug">«Покаяние тогда истинно, когда человек твердо решит не возвращаться к греху»</p>
+<section
+        class="bg-white/40 border-2 border-dashed border-church-gold/30 p-8 rounded-3xl italic text-center text-lg text-gray-700 font-serif">
+    <p class="mb-4 text-xl md:text-2xl leading-snug">«Покаяние тогда истинно, когда человек твердо решит не возвращаться
+        к греху»</p>
     <cite class="text-church-wine not-italic font-bold text-sm uppercase font-sans">— прп. Иосиф Оптинский</cite>
 </section>
 {{end}}

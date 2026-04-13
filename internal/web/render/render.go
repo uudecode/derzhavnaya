@@ -53,6 +53,7 @@ func (e *Engine) Render(w http.ResponseWriter, r *http.Request, name string, dat
 	if user, ok := auth.FromContext(r.Context()); ok {
 		data["User"] = user
 	}
+	data["CurrentPath"] = r.URL.Path
 
 	t, ok := e.templates[name]
 	if !ok {
