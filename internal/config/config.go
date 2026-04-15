@@ -5,8 +5,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/rs/zerolog/log"
 	"github.com/spf13/viper"
+	"go.uber.org/fx"
+)
+
+var Module = fx.Options(
+	fx.Provide(Load),
 )
 
 type Config struct {
@@ -64,7 +68,6 @@ func Load() (*Config, error) {
 	v.SetConfigType("toml")
 	v.AddConfigPath(".")
 
-	// Заменяем точки на подчеркивания для ENV (database.host -> DATABASE_HOST)
 	v.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
 	v.AutomaticEnv()
 
@@ -92,12 +95,12 @@ func Load() (*Config, error) {
 
 	for key, env := range bindings {
 		if err := v.BindEnv(key, env); err != nil {
-			log.Fatal().Err(err).Msgf("Failed to bind %s to %s", key, env)
+			return nil, fmt.Errorf("failed to bind env var %s: %w", env, err)
 		}
 	}
 
 	if err := v.ReadInConfig(); err != nil {
-		log.Warn().Msg("Config file not found, using env only")
+		fmt.Printf("Config file not found (%s), proceeding with environment variables\n", err)
 	}
 
 	var cfg Config
@@ -105,14 +108,5 @@ func Load() (*Config, error) {
 		return nil, err
 	}
 
-	log.Debug().
-		Int("port", cfg.App.Port).
-		Str("db_host", cfg.Database.Host).
-		Str("db_name", cfg.Database.Name).
-		Str("s3_endpoint", cfg.S3.Endpoint).
-		Str("s3_bucket", cfg.S3.Bucket).
-		Msg("Configuration loaded")
-
 	return &cfg, nil
-
 }

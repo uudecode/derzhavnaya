@@ -62,7 +62,7 @@ func (q *Queries) DeleteSession(ctx context.Context, id string) error {
 }
 
 const getActiveMenuItems = `-- name: GetActiveMenuItems :many
-SELECT id, position, label, icon, url, is_active, created_at FROM web.menu_item
+SELECT id, position, label, icon, url, is_active, created_at, role FROM web.menu_item
 WHERE is_active = true
 ORDER BY position ASC
 `
@@ -84,6 +84,7 @@ func (q *Queries) GetActiveMenuItems(ctx context.Context) ([]WebMenuItem, error)
 			&i.Url,
 			&i.IsActive,
 			&i.CreatedAt,
+			&i.Role,
 		); err != nil {
 			return nil, err
 		}

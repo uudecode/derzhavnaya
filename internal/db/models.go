@@ -18,6 +18,7 @@ type WebMenuItem struct {
 	Url       string
 	IsActive  bool
 	CreatedAt time.Time
+	Role      pgtype.Text
 }
 
 type WebSession struct {

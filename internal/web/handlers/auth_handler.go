@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/go-chi/chi/v5"
 	"github.com/google/uuid"
 	"github.com/rs/zerolog/log"
 	"golang.org/x/crypto/bcrypt"
@@ -18,6 +19,19 @@ type AuthHandler struct {
 	Renderer *render.Engine
 }
 
+func NewAuthHandler(queries *db.Queries, limiter *auth.RateLimiter, renderer *render.Engine) *AuthHandler {
+	return &AuthHandler{
+		DB:       queries,
+		Limiter:  limiter,
+		Renderer: renderer,
+	}
+}
+
+func (h *AuthHandler) Register(r chi.Router) {
+	r.Get("/login", h.LoginGet)
+	r.Post("/login", h.LoginPost)
+	r.Post("/logout", h.LogoutPost)
+}
 func (h *AuthHandler) LoginGet(w http.ResponseWriter, r *http.Request) {
 	backURL := r.Referer()
 	if backURL == "" {
