@@ -27,11 +27,17 @@ ORDER BY position ASC;
 -- name: DeleteSession :exec
 DELETE FROM  web.sessions WHERE id = $1;
 
+-- name: GetAnsweredQuestionsFirstPage :many
+SELECT *
+FROM public.hram_talk
+WHERE flag = 1
+ORDER BY data_a DESC, id DESC
+LIMIT $1;
 
 -- name: GetAnsweredQuestionsPaginated :many
 SELECT *
 FROM public.hram_talk
 WHERE flag = 1
-  AND (data_a , id) < ($2, $3)
+  AND (data_a, id) < (@last_date::date, @last_id::int)
 ORDER BY data_a DESC, id DESC
-LIMIT $1;
+LIMIT @page_limit::int;

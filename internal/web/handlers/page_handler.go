@@ -2,8 +2,11 @@ package handlers
 
 import (
 	"Derzhavnaya/internal/config"
-	"Derzhavnaya/internal/db"
 	"Derzhavnaya/internal/web/auth"
+	"Derzhavnaya/internal/web/types"
+	"context"
+
+	"Derzhavnaya/internal/db"
 	"Derzhavnaya/internal/web/render"
 	"net/http"
 
@@ -29,35 +32,23 @@ func (h *PageHandler) Register(r chi.Router) {
 }
 
 func (h *PageHandler) Index(w http.ResponseWriter, r *http.Request) {
-	user, _ := auth.FromContext(r.Context())
-	allMenuItems, _ := h.DB.GetActiveMenuItems(r.Context())
-	menuItems := h.filterMenu(allMenuItems, user.Role)
 
 	data := map[string]any{
 		"MainIconURL": h.Cfg.S3.PublicBaseURL + "/icons/derzhavnaya_main.jpg",
-		"MenuItems":   menuItems,
 		"CurrentPath": "/",
 	}
 
 	h.Renderer.Render(w, r, "index.html", data)
 }
 
-func (h *PageHandler) filterMenu(items []db.WebMenuItem, userRole string) []db.WebMenuItem {
-	var filtered []db.WebMenuItem
-	for _, item := range items {
-		if !item.Role.Valid || item.Role.String == "" {
-			filtered = append(filtered, item)
-			continue
-		}
+func (h *PageHandler) MenuMiddleware(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		user, _ := auth.FromContext(r.Context())
+		all, _ := h.DB.GetActiveMenuItems(r.Context())
 
-		if item.Role.String == userRole {
-			filtered = append(filtered, item)
-			continue
-		}
+		menu := auth.FilterMenuByRole(all, user.Role)
 
-		if userRole == "ADMIN" {
-			filtered = append(filtered, item)
-		}
-	}
-	return filtered
+		ctx := context.WithValue(r.Context(), types.MenuKey, menu)
+		next.ServeHTTP(w, r.WithContext(ctx))
+	})
 }

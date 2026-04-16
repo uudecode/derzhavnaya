@@ -96,23 +96,60 @@ func (q *Queries) GetActiveMenuItems(ctx context.Context) ([]WebMenuItem, error)
 	return items, nil
 }
 
-const getAnsweredQuestionsPaginated = `-- name: GetAnsweredQuestionsPaginated :many
+const getAnsweredQuestionsFirstPage = `-- name: GetAnsweredQuestionsFirstPage :many
 SELECT id, data_q, name, email, question, answer, data_a, flag
 FROM public.hram_talk
 WHERE flag = 1
-  AND (data_a , id) < ($2, $3)
 ORDER BY data_a DESC, id DESC
 LIMIT $1
 `
 
+func (q *Queries) GetAnsweredQuestionsFirstPage(ctx context.Context, limit int32) ([]HramTalk, error) {
+	rows, err := q.db.Query(ctx, getAnsweredQuestionsFirstPage, limit)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var items []HramTalk
+	for rows.Next() {
+		var i HramTalk
+		if err := rows.Scan(
+			&i.ID,
+			&i.DataQ,
+			&i.Name,
+			&i.Email,
+			&i.Question,
+			&i.Answer,
+			&i.DataA,
+			&i.Flag,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
+const getAnsweredQuestionsPaginated = `-- name: GetAnsweredQuestionsPaginated :many
+SELECT id, data_q, name, email, question, answer, data_a, flag
+FROM public.hram_talk
+WHERE flag = 1
+  AND (data_a, id) < ($1::date, $2::int)
+ORDER BY data_a DESC, id DESC
+LIMIT $3::int
+`
+
 type GetAnsweredQuestionsPaginatedParams struct {
-	Limit   int32
-	DataA   pgtype.Date
-	DataA_2 pgtype.Date
+	LastDate  pgtype.Date
+	LastID    int32
+	PageLimit int32
 }
 
 func (q *Queries) GetAnsweredQuestionsPaginated(ctx context.Context, arg GetAnsweredQuestionsPaginatedParams) ([]HramTalk, error) {
-	rows, err := q.db.Query(ctx, getAnsweredQuestionsPaginated, arg.Limit, arg.DataA, arg.DataA_2)
+	rows, err := q.db.Query(ctx, getAnsweredQuestionsPaginated, arg.LastDate, arg.LastID, arg.PageLimit)
 	if err != nil {
 		return nil, err
 	}

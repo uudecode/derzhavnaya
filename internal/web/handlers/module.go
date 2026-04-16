@@ -13,5 +13,6 @@ var Module = fx.Options(
 	fx.Provide(
 		fx.Annotate(NewAuthHandler, fx.As(new(Handler)), fx.ResultTags(`group:"handlers"`)),
 		fx.Annotate(NewPageHandler, fx.As(new(Handler)), fx.ResultTags(`group:"handlers"`)),
+		fx.Annotate(NewQuestionsHandler, fx.As(new(Handler)), fx.ResultTags(`group:"handlers"`)),
 	),
 )

@@ -1,0 +1,107 @@
+package handlers
+
+import (
+	"Derzhavnaya/internal/db"
+	"Derzhavnaya/internal/web/render"
+	"html/template"
+	"net/http"
+	"strconv"
+	"time"
+
+	"github.com/go-chi/chi/v5"
+	"github.com/jackc/pgx/v5/pgtype"
+)
+
+type QuestionsHandler struct {
+	DB       *db.Queries
+	Renderer *render.Engine
+}
+
+func NewQuestionsHandler(queries *db.Queries, renderer *render.Engine) *QuestionsHandler {
+	return &QuestionsHandler{
+		DB:       queries,
+		Renderer: renderer,
+	}
+}
+
+type TalkView struct {
+	ID       int32
+	DataQ    time.Time
+	Name     string
+	Question template.HTML
+	Answer   template.HTML
+}
+
+func (h *QuestionsHandler) Register(r chi.Router) {
+	r.Get("/talks", h.Talks)
+}
+
+func (h *QuestionsHandler) Talks(w http.ResponseWriter, r *http.Request) {
+	pageSize := 20
+	cursorTimeStr := r.URL.Query().Get("cursor_time")
+	cursorIDStr := r.URL.Query().Get("cursor_id")
+	var items []db.HramTalk
+	var err error
+
+	limitWithNext := int32(pageSize + 1)
+	if cursorTimeStr == "" || cursorIDStr == "" {
+		items, err = h.DB.GetAnsweredQuestionsFirstPage(r.Context(), limitWithNext)
+	} else {
+		lastTime, _ := time.Parse(time.RFC3339, cursorTimeStr)
+		lastID, _ := strconv.Atoi(cursorIDStr)
+		items, err = h.DB.GetAnsweredQuestionsPaginated(r.Context(),
+			db.GetAnsweredQuestionsPaginatedParams{
+				LastDate: pgtype.Date{
+					Time:  lastTime,
+					Valid: true,
+				},
+				LastID:    int32(lastID),
+				PageLimit: limitWithNext,
+			})
+	}
+
+	if err != nil {
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		return
+	}
+	hasNext := len(items) > pageSize
+
+	var rawItems []db.HramTalk
+	if hasNext {
+		rawItems = items[:pageSize]
+	} else {
+		rawItems = items
+	}
+
+	viewItems := make([]TalkView, len(rawItems))
+	for i, item := range rawItems {
+		cleanQ := render.UgcPolicy.Sanitize(item.Question)
+		cleanA := render.UgcPolicy.Sanitize(item.Answer)
+
+		viewItems[i] = TalkView{
+			ID:       item.ID,
+			DataQ:    item.DataQ.Time,
+			Name:     item.Name,
+			Question: template.HTML(cleanQ),
+			Answer:   template.HTML(cleanA),
+		}
+	}
+
+	var nextCursorTime string
+	var nextCursorID int32
+	if hasNext {
+		lastRaw := rawItems[len(rawItems)-1]
+		nextCursorTime = lastRaw.DataQ.Time.Format(time.RFC3339)
+		nextCursorID = lastRaw.ID
+	}
+
+	data := map[string]interface{}{
+		"Talks":          viewItems, // Отдаем уже подготовленные TalkView
+		"HasNext":        hasNext,
+		"NextCursorTime": nextCursorTime,
+		"NextCursorID":   nextCursorID,
+		"CurrentPath":    "/talks",
+	}
+
+	h.Renderer.Render(w, r, "talks.html", data)
+}

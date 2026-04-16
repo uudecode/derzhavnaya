@@ -2,6 +2,7 @@ package render
 
 import (
 	"Derzhavnaya/internal/web/auth"
+	"Derzhavnaya/internal/web/types"
 	"Derzhavnaya/web"
 	"html/template"
 	"io/fs"
@@ -53,6 +54,10 @@ func (e *Engine) Render(w http.ResponseWriter, r *http.Request, name string, dat
 	if user, ok := auth.FromContext(r.Context()); ok {
 		data["User"] = user
 	}
+	if menu := r.Context().Value(types.MenuKey); menu != nil {
+		data["MenuItems"] = menu
+	}
+
 	data["CurrentPath"] = r.URL.Path
 
 	t, ok := e.templates[name]

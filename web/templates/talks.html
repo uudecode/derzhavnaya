@@ -1,0 +1,71 @@
+{{template "base" .}}
+
+{{define "title"}}Разговор со священником (вопросы и ответы){{end}}
+
+{{define "content"}}
+<main class="max-w-[1440px] mx-auto px-4 py-8">
+    <div class="flex flex-col md:flex-row gap-12 items-start">
+
+        <aside class="relative md:sticky md:top-24 w-full md:w-64 shrink-0 z-20">
+            {{template "menu" .}}
+        </aside>
+
+        <div class="flex-1 space-y-8">
+            <header class="mb-12">
+                <h2 class="text-2xl text-church-wine uppercase tracking-widest border-l-4 border-church-wine pl-4 mb-2 font-sans">
+                    Вопросы и ответы
+                </h2>
+                <p class="text-gray-500 font-serif italic text-sm tracking-wide">
+                    Духовные наставления и ответы на вопросы прихожан
+                </p>
+            </header>
+
+            <div class="space-y-12">
+                {{range .Talks}}
+                <div class="bg-white/40 p-6 md:p-8 rounded-3xl border border-church-gold/20 shadow-sm transition hover:bg-white/60">
+                    <div class="flex flex-wrap items-center justify-between gap-4 mb-6 pb-4 border-b border-church-gold/10 pt-2">
+                        <div class="flex items-center gap-2">
+                            <span class="text-church-wine font-bold font-sans uppercase text-[10px] tracking-wider opacity-70">От кого:</span>
+                            <span class="text-gray-900 font-serif font-medium">{{.Name}}</span>
+                        </div>
+                        <time class="text-[11px] text-church-wine/60 font-sans font-bold uppercase tracking-widest bg-church-wine/5 px-3 py-1 rounded-full">
+                            {{.DataQ.Format "02.01.2006"}}
+                        </time>
+                    </div>
+
+                    <div class="mb-8 px-2"> <p class="text-gray-800 leading-relaxed italic font-serif text-lg border-l-2 border-church-gold/30 pl-6">
+                        «{{.Question}}»
+                    </p>
+                    </div>
+
+                    <div class="bg-white/60 rounded-2xl p-6 border-l-4 border-church-gold shadow-inner">
+                        <div class="flex items-start gap-4">
+                            <div class="hidden sm:flex shrink-0 w-10 h-10 bg-church-wine rounded-full items-center justify-center text-white text-xl shadow-md">
+                                ☦
+                            </div>
+                            <div>
+                                <h4 class="text-church-wine font-bold text-xs uppercase tracking-widest mb-2 font-sans">Ответ священника:</h4>
+                                <div class="text-gray-800 leading-relaxed font-serif whitespace-pre-wrap text-[17px]">{{.Answer}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{else}}
+                <div class="text-center py-20 bg-white/20 rounded-3xl border-2 border-dashed border-church-gold/20">
+                    <p class="text-gray-500 font-serif italic text-xl">Вопросов пока нет...</p>
+                </div>
+                {{end}}
+            </div>
+
+            {{if .HasNext}}
+            <div class="flex justify-center pt-8">
+                <a href="/talks?cursor_time={{.NextCursorTime}}&cursor_id={{.NextCursorID}}"
+                   class="px-8 py-4 bg-church-wine text-white rounded-full font-sans text-xs uppercase tracking-[0.2em] hover:bg-red-900 transition-all shadow-lg hover:shadow-church-wine/20 transform hover:-translate-y-0.5">
+                    Показать еще вопросы
+                </a>
+            </div>
+            {{end}}
+        </div>
+    </div>
+</main>
+{{end}}

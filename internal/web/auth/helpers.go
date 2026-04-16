@@ -1,6 +1,7 @@
 package auth
 
 import (
+	"Derzhavnaya/internal/db"
 	"net"
 	"net/http"
 	"strings"
@@ -48,4 +49,18 @@ func (rl *RateLimiter) Allow(ip string) bool {
 	}()
 
 	return true
+}
+
+func FilterMenuByRole(items []db.WebMenuItem, userRole string) []db.WebMenuItem {
+	var filtered []db.WebMenuItem
+	for _, item := range items {
+		if !item.Role.Valid || item.Role.String == "" {
+			filtered = append(filtered, item)
+			continue
+		}
+		if strings.EqualFold(item.Role.String, userRole) || strings.EqualFold(userRole, "admin") {
+			filtered = append(filtered, item)
+		}
+	}
+	return filtered
 }

@@ -56,8 +56,26 @@ func NewServer(p ServerParams) *Server {
 		http.ServeFileFS(w, r, web.Static, "static/favicon.ico")
 	})
 
+	var pageH *handlers.PageHandler
 	for _, h := range p.Handlers {
-		h.Register(r)
+		if ph, ok := h.(*handlers.PageHandler); ok {
+			pageH = ph
+			break
+		}
+	}
+
+	for _, h := range p.Handlers {
+		if _, ok := h.(*handlers.AuthHandler); ok {
+			h.Register(r)
+			continue
+		}
+
+		r.Group(func(r chi.Router) {
+			if pageH != nil {
+				r.Use(pageH.LayoutMiddleware)
+			}
+			h.Register(r)
+		})
 	}
 
 	return &Server{
