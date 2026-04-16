@@ -26,3 +26,12 @@ ORDER BY position ASC;
 
 -- name: DeleteSession :exec
 DELETE FROM  web.sessions WHERE id = $1;
+
+
+-- name: GetAnsweredQuestionsPaginated :many
+SELECT *
+FROM public.hram_talk
+WHERE flag = 1
+  AND (data_a , id) < ($2, $3)
+ORDER BY data_a DESC, id DESC
+LIMIT $1;

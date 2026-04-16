@@ -10,6 +10,129 @@ import (
 	"github.com/jackc/pgx/v5/pgtype"
 )
 
+type GooseDbVersion struct {
+	ID        int32
+	VersionID int64
+	IsApplied bool
+	Tstamp    pgtype.Timestamp
+}
+
+type HramLib struct {
+	ID           int32
+	IDSubsection int32
+	Name         string
+	Filename     string
+	FlagNew      pgtype.Int4
+	Weight       int32
+}
+
+type HramLibSection struct {
+	ID     int32
+	Name   string
+	Weight int32
+}
+
+type HramLibSubsection struct {
+	ID        int32
+	IDSection int32
+	Name      string
+	Weight    int32
+	Header    []byte
+	Footer    []byte
+}
+
+type HramMu struct {
+	ID           int32
+	IDSubsection int32
+	Name         string
+	Filename     string
+	FlagNew      pgtype.Int4
+	Weight       int32
+}
+
+type HramMusSection struct {
+	ID     int32
+	Name   string
+	Weight int32
+}
+
+type HramMusSubsection struct {
+	ID        int32
+	IDSection int32
+	Name      string
+	Weight    int32
+	Header    []byte
+	Footer    []byte
+}
+
+type HramNews struct {
+	ID      int32
+	Data    pgtype.Date
+	News    string
+	Url     string
+	Chapter pgtype.Text
+}
+
+type HramNewsNew struct {
+	ID      int32
+	Data    pgtype.Date
+	News    string
+	Url     string
+	Chapter pgtype.Text
+}
+
+type HramTalk struct {
+	ID       int32
+	DataQ    pgtype.Date
+	Name     string
+	Email    string
+	Question string
+	Answer   string
+	DataA    pgtype.Date
+	Flag     pgtype.Int4
+}
+
+type HramTalkNew struct {
+	ID       int32
+	DataQ    pgtype.Date
+	Name     string
+	Email    string
+	Question string
+	Answer   string
+	DataA    pgtype.Date
+	Flag     pgtype.Int4
+}
+
+type HramTalkOld struct {
+	ID       int32
+	DataQ    pgtype.Date
+	Name     string
+	Email    string
+	Question string
+	Answer   string
+	DataA    pgtype.Date
+	Flag     pgtype.Int4
+}
+
+type HramTalkRecover struct {
+	ID       int32
+	DataQ    pgtype.Date
+	Name     string
+	Email    string
+	Question string
+	Answer   string
+	DataA    pgtype.Date
+	Flag     pgtype.Int4
+}
+
+// Пользователи системы
+type User struct {
+	ID       int32
+	Name     string
+	Fullname string
+	Hash     string
+}
+
 type WebMenuItem struct {
 	ID        pgtype.UUID
 	Position  int16
