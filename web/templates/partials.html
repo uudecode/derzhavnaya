@@ -1,13 +1,13 @@
 {{define "header"}}
 <header class="h-16 border-b border-church-gold/20 flex items-center justify-between px-4 md:px-8 bg-church-wine backdrop-blur-sm sticky top-0 z-50 font-sans text-white">
     <div class="text-xs sm:text-sm font-bold uppercase tracking-[0.3em] text-white">
-        Санкт-Петербургская епархия
+        {{.Page.Title}}
     </div>
 
     <div class="flex items-center gap-6">
-        {{if ne .CurrentPath "/login"}}
+        {{if ne .Base.CurrentPath "/login"}}
         <div class="text-xs uppercase tracking-wider border-x border-white/10 px-4 py-1">
-                {{if .User}}
+                {{if .Base.User}}
                 <div class="flex items-center gap-3">
                     <span class="text-church-gold/90">👤 {{.User.FullName.String}}</span>
                     <form action="/logout" method="POST" class="inline">
@@ -28,9 +28,10 @@
         {{end}}
 
         <div class="hidden sm:flex gap-4 text-sm uppercase tracking-tighter">
-            <a href="#" class="font-bold border-b-2 border-church-gold text-church-gold">RU</a>
-            <a href="#" class="opacity-50 text-church-beige/50">EN</a>
-            <a href="#" class="opacity-50 text-church-beige/50">FR</a>
+            {{$lang := .Base.CurrentLang}}
+            <a href="/set-lang/ru" class="{{if eq $lang "ru"}}font-bold border-b-2 border-church-gold text-church-gold{{else}}opacity-50 text-church-beige/50{{end}}">RU</a>
+            <a href="/set-lang/en" class="{{if eq $lang "en"}}font-bold border-b-2 border-church-gold text-church-gold{{else}}opacity-50 text-church-beige/50{{end}}">EN</a>
+            <a href="/set-lang/fr" class="{{if eq $lang "fr"}}font-bold border-b-2 border-church-gold text-church-gold{{else}}opacity-50 text-church-beige/50{{end}}">FR</a>
         </div>
     </div>
 </header>
@@ -38,12 +39,13 @@
 
 {{define "menu"}}
 <ul class="flex flex-col gap-1 font-sans uppercase tracking-wider text-sm relative h-auto">
-    {{$current := .CurrentPath}}
-    {{range .MenuItems}}
+    {{$current := .Base.CurrentPath}}
+    {{range .Base.MenuItems}}
+    {{$isActive := or (eq .Url $current) (and (ne .Url "/") (hasPrefix $current .Url))}}
     <li>
         <a href="{{.Url}}"
            class="flex items-center p-3 rounded-lg transition-all
-           {{if eq .Url $current}}
+           {{if $isActive}}
                 bg-church-wine text-white shadow-md
            {{else}}
                 text-gray-700 hover:bg-white border border-transparent

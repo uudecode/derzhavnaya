@@ -1,6 +1,7 @@
 package server
 
 import (
+	"Derzhavnaya/internal/web/translator"
 	"context"
 	"fmt"
 	"io/fs"
@@ -20,7 +21,8 @@ import (
 )
 
 var Module = fx.Options(
-	fx.Provide(NewServer),
+	fx.Provide(NewServer,
+		translator.NewTranslator),
 	fx.Invoke(StartHTTPServer),
 )
 
@@ -32,9 +34,10 @@ type Server struct {
 type ServerParams struct {
 	fx.In
 
-	Cfg      *config.Config
-	DB       *db.Queries
-	Handlers []handlers.Handler `group:"handlers"`
+	Cfg        *config.Config
+	DB         *db.Queries
+	Translator *translator.Translator
+	Handlers   []handlers.Handler `group:"handlers"`
 }
 
 func NewServer(p ServerParams) *Server {
@@ -43,6 +46,7 @@ func NewServer(p ServerParams) *Server {
 	r.Use(middleware.Logger)
 	r.Use(middleware.Recoverer)
 	r.Use(auth.LoadUser(p.DB))
+	r.Use(handlers.LanguageMiddleware)
 
 	r.Use(func(next http.Handler) http.Handler {
 		return nosurf.New(next)
@@ -56,9 +60,9 @@ func NewServer(p ServerParams) *Server {
 		http.ServeFileFS(w, r, web.Static, "static/favicon.ico")
 	})
 
-	var pageH *handlers.PageHandler
+	var pageH *handlers.IndexHandler
 	for _, h := range p.Handlers {
-		if ph, ok := h.(*handlers.PageHandler); ok {
+		if ph, ok := h.(*handlers.IndexHandler); ok {
 			pageH = ph
 			break
 		}

@@ -1,0 +1,17 @@
+{{template "base" .}}
+
+{{define "title"}}Фотогалерея{{end}}
+
+{{define "content"}}
+<main class="max-w-[1440px] mx-auto px-4 py-8">
+    <div class="flex flex-col md:flex-row gap-12 items-start">
+
+        <aside class="relative md:sticky md:top-24 w-full md:w-64 shrink-0 z-20">
+            {{template "menu" .}}
+        </aside>
+
+    </div>
+
+
+</main>
+{{end}}

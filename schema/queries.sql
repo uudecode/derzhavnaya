@@ -41,3 +41,9 @@ WHERE flag = 1
   AND (data_a, id) < (@last_date::date, @last_id::int)
 ORDER BY data_a DESC, id DESC
 LIMIT @page_limit::int;
+
+-- name: GetTranslation :one
+SELECT *
+  FROM web.translation
+WHERE key = @key
+  AND lang = @lang;

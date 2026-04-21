@@ -177,6 +177,30 @@ func (q *Queries) GetAnsweredQuestionsPaginated(ctx context.Context, arg GetAnsw
 	return items, nil
 }
 
+const getTranslation = `-- name: GetTranslation :one
+SELECT id, key, lang, value
+  FROM web.translation
+WHERE key = $1
+  AND lang = $2
+`
+
+type GetTranslationParams struct {
+	Key  string
+	Lang string
+}
+
+func (q *Queries) GetTranslation(ctx context.Context, arg GetTranslationParams) (WebTranslation, error) {
+	row := q.db.QueryRow(ctx, getTranslation, arg.Key, arg.Lang)
+	var i WebTranslation
+	err := row.Scan(
+		&i.ID,
+		&i.Key,
+		&i.Lang,
+		&i.Value,
+	)
+	return i, err
+}
+
 const getUserByEmail = `-- name: GetUserByEmail :one
 SELECT id, email, password, full_name, role, created_at FROM web.users
 WHERE email = $1 LIMIT 1

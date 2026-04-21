@@ -133,6 +133,33 @@ type User struct {
 	Hash     string
 }
 
+type WebGalleryCategory struct {
+	ID       int32
+	ParentID pgtype.Int4
+	Code     string
+}
+
+type WebGalleryCategoryTranslation struct {
+	CategoryID  int32
+	Locale      string
+	Title       string
+	Slug        string
+	Description string
+}
+
+type WebGalleryPhoto struct {
+	ID         int32
+	CategoryID int32
+	ObjectKey  string
+	SortOrder  int32
+}
+
+type WebGalleryPhotoTranslation struct {
+	PhotoID int32
+	Locale  string
+	Caption pgtype.Text
+}
+
 type WebMenuItem struct {
 	ID        pgtype.UUID
 	Position  int16
@@ -144,11 +171,26 @@ type WebMenuItem struct {
 	Role      pgtype.Text
 }
 
+type WebMenuItemTranslation struct {
+	CategoryID  int32
+	Locale      string
+	Title       string
+	Slug        string
+	Description string
+}
+
 type WebSession struct {
 	ID        string
 	UserID    pgtype.UUID
 	ExpiresAt time.Time
 	CreatedAt time.Time
+}
+
+type WebTranslation struct {
+	ID    int32
+	Key   string
+	Lang  string
+	Value string
 }
 
 type WebUser struct {

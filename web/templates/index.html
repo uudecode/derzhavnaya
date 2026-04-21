@@ -1,6 +1,6 @@
 {{template "base" .}}
 
-{{define "title"}}Главная — Храм «Державная»{{end}}
+{{define "title"}}{{.Page.Title}}{{end}}
 
 {{define "content"}}
 <main class="max-w-[1440px] mx-auto px-4 py-8">
@@ -36,7 +36,7 @@
                     </div>
 
                     <div class="w-full max-w-[320px] aspect-[3/4] rounded-xl shadow-2xl border-4 border-church-gold/20 overflow-hidden mb-12 transform transition hover:scale-[1.01] relative z-20">
-                        <img src="{{.MainIconURL}}" alt="Икона «Державная»" class="w-full h-full object-cover">
+                        <img src="{{.Page.MainIconURL}}" alt="Икона «Державная»" class="w-full h-full object-cover">
                     </div>
 
                     <div class="max-w-2xl">

@@ -1,14 +1,12 @@
 package render
 
 import (
-	"Derzhavnaya/internal/web/auth"
-	"Derzhavnaya/internal/web/types"
+	"Derzhavnaya/internal/web/viewmodel"
 	"Derzhavnaya/web"
 	"html/template"
 	"io/fs"
 	"net/http"
 
-	"github.com/justinas/nosurf"
 	"github.com/rs/zerolog/log"
 )
 
@@ -20,7 +18,7 @@ func NewEngine() *Engine {
 	e := &Engine{
 		templates: make(map[string]*template.Template),
 	}
-
+	funcMap := GetFuncMap()
 	entries, err := fs.ReadDir(web.Templates, "templates")
 	if err != nil {
 		log.Fatal().Err(err).Msg("failed to read templates directory")
@@ -32,7 +30,7 @@ func NewEngine() *Engine {
 			continue
 		}
 
-		t, err := template.New("base").ParseFS(web.Templates,
+		t, err := template.New("base").Funcs(funcMap).ParseFS(web.Templates,
 			"templates/base.html",
 			"templates/partials.html",
 			"templates/"+name)
@@ -46,19 +44,7 @@ func NewEngine() *Engine {
 	return e
 }
 
-func (e *Engine) Render(w http.ResponseWriter, r *http.Request, name string, data map[string]any) {
-	if data == nil {
-		data = make(map[string]any)
-	}
-	data["CSRFToken"] = nosurf.Token(r)
-	if user, ok := auth.FromContext(r.Context()); ok {
-		data["User"] = user
-	}
-	if menu := r.Context().Value(types.MenuKey); menu != nil {
-		data["MenuItems"] = menu
-	}
-
-	data["CurrentPath"] = r.URL.Path
+func (e *Engine) Render(w http.ResponseWriter, name string, data viewmodel.PageContainer) {
 
 	t, ok := e.templates[name]
 	if !ok {

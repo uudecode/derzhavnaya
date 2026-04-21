@@ -1,8 +1,10 @@
 package handlers
 
 import (
+	"Derzhavnaya/internal/config"
 	"Derzhavnaya/internal/db"
 	"Derzhavnaya/internal/web/render"
+	"Derzhavnaya/internal/web/translator"
 	"html/template"
 	"net/http"
 	"strconv"
@@ -13,14 +15,17 @@ import (
 )
 
 type QuestionsHandler struct {
-	DB       *db.Queries
-	Renderer *render.Engine
+	BaseHandler
 }
 
-func NewQuestionsHandler(queries *db.Queries, renderer *render.Engine) *QuestionsHandler {
+func NewQuestionsHandler(queries *db.Queries, cfg *config.Config, renderer *render.Engine, trans *translator.Translator) *QuestionsHandler {
 	return &QuestionsHandler{
-		DB:       queries,
-		Renderer: renderer,
+		BaseHandler: BaseHandler{
+			DB:         queries,
+			Renderer:   renderer,
+			Cfg:        cfg,
+			Translator: trans,
+		},
 	}
 }
 
@@ -103,5 +108,5 @@ func (h *QuestionsHandler) Talks(w http.ResponseWriter, r *http.Request) {
 		"CurrentPath":    "/talks",
 	}
 
-	h.Renderer.Render(w, r, "talks.html", data)
+	h.RenderPage(w, r, "talks.html", data)
 }
