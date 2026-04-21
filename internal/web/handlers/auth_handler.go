@@ -6,6 +6,7 @@ import (
 	"Derzhavnaya/internal/web/auth"
 	"Derzhavnaya/internal/web/render"
 	"Derzhavnaya/internal/web/translator"
+	"Derzhavnaya/internal/web/viewmodel"
 	"net/http"
 	"time"
 
@@ -38,26 +39,22 @@ func (h *AuthHandler) Register(r chi.Router) {
 	r.Post("/logout", h.LogoutPost)
 }
 func (h *AuthHandler) LoginGet(w http.ResponseWriter, r *http.Request) {
-	backURL := r.Referer()
-	if backURL == "" {
-		backURL = "/"
-	}
-
-	h.RenderPage(w, r, "login.html", map[string]any{
-		"BackURL": backURL,
+	h.RenderPage(w, r, "login.html", viewmodel.AuthView{
+		BackURL: backURL(r),
 	})
 }
 
 func (h *AuthHandler) LoginPost(w http.ResponseWriter, r *http.Request) {
 	renderError := func(msg string, code int, emailAddr string) {
-		h.RenderPage(w, r, "login.html", map[string]any{
-			"Error": msg,
-			"Email": emailAddr,
+		h.RenderPage(w, r, "login.html", viewmodel.AuthView{
+			BackURL: backURL(r),
+			Error:   msg,
+			Email:   emailAddr,
 		})
 	}
 	ip := auth.GetIP(r)
 	if !h.Limiter.Allow(ip) {
-		renderError("Слишком много попыток. Попробуйте позже.", http.StatusTooManyRequests, "")
+		renderError(h.T(r, "auth.error.too_many_attempts"), http.StatusTooManyRequests, "")
 		return
 	}
 
@@ -66,13 +63,13 @@ func (h *AuthHandler) LoginPost(w http.ResponseWriter, r *http.Request) {
 
 	user, err := h.DB.GetUserByEmail(r.Context(), email)
 	if err != nil {
-		renderError("Неверный логин или пароль", http.StatusUnauthorized, email)
+		renderError(h.T(r, "auth.error.invalid_credentials"), http.StatusUnauthorized, "")
 		return
 	}
 
 	err = bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(password))
 	if err != nil {
-		renderError("Неверный логин или пароль", http.StatusUnauthorized, email)
+		renderError(h.T(r, "auth.error.invalid_credentials"), http.StatusUnauthorized, "")
 		return
 	}
 
@@ -85,7 +82,7 @@ func (h *AuthHandler) LoginPost(w http.ResponseWriter, r *http.Request) {
 		ExpiresAt: expiresAt,
 	})
 	if err != nil {
-		http.Error(w, "Ошибка сервера", http.StatusInternalServerError)
+		http.Error(w, h.T(r, "error.server_error"), http.StatusInternalServerError)
 		return
 	}
 
@@ -120,4 +117,12 @@ func (h *AuthHandler) LogoutPost(w http.ResponseWriter, r *http.Request) {
 		MaxAge: -1,
 	})
 	http.Redirect(w, r, "/", http.StatusSeeOther)
+}
+
+func backURL(r *http.Request) string {
+	backURL := r.Referer()
+	if backURL == "" {
+		backURL = "/"
+	}
+	return backURL
 }

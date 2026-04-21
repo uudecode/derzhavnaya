@@ -1,6 +1,7 @@
 package render
 
 import (
+	"Derzhavnaya/internal/web/translator"
 	"Derzhavnaya/internal/web/viewmodel"
 	"Derzhavnaya/web"
 	"html/template"
@@ -11,14 +12,16 @@ import (
 )
 
 type Engine struct {
-	templates map[string]*template.Template
+	templates  map[string]*template.Template
+	Translator *translator.Translator
 }
 
-func NewEngine() *Engine {
+func NewEngine(trans *translator.Translator) *Engine {
 	e := &Engine{
-		templates: make(map[string]*template.Template),
+		templates:  make(map[string]*template.Template),
+		Translator: trans,
 	}
-	funcMap := GetFuncMap()
+	funcMap := GetFuncMap(e.Translator)
 	entries, err := fs.ReadDir(web.Templates, "templates")
 	if err != nil {
 		log.Fatal().Err(err).Msg("failed to read templates directory")

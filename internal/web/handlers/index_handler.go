@@ -34,7 +34,6 @@ func (h *IndexHandler) Index(w http.ResponseWriter, r *http.Request) {
 	data := map[string]any{
 		"MainIconURL": h.Cfg.S3.PublicBaseURL + "/icons/derzhavnaya_main.jpg",
 		"CurrentPath": "/",
-		"Title":       h.T(r, "site.index_title"),
 	}
 
 	h.RenderPage(w, r, "index.html", data)

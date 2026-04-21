@@ -1,7 +1,7 @@
 {{define "header"}}
 <header class="h-16 border-b border-church-gold/20 flex items-center justify-between px-4 md:px-8 bg-church-wine backdrop-blur-sm sticky top-0 z-50 font-sans text-white">
     <div class="text-xs sm:text-sm font-bold uppercase tracking-[0.3em] text-white">
-        {{.Page.Title}}
+        {{ T . "header.title" }}
     </div>
 
     <div class="flex items-center gap-6">
@@ -9,19 +9,19 @@
         <div class="text-xs uppercase tracking-wider border-x border-white/10 px-4 py-1">
                 {{if .Base.User}}
                 <div class="flex items-center gap-3">
-                    <span class="text-church-gold/90">👤 {{.User.FullName.String}}</span>
+                    <span class="text-church-gold/90">👤 {{.Base.User.FullName}}</span>
                     <form action="/logout" method="POST" class="inline">
-                        <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">
+                        <input type="hidden" name="csrf_token" value="{{.Base.CSRFToken}}">
                         <button type="submit" class="bg-transparent p-0 m-0 border-none cursor-pointer flex items-center gap-1
         text-xs uppercase tracking-wider text-white hover:text-church-gold transition-colors opacity-70 hover:opacity-100">
-                            <span>🚪</span>Выйти
+                            <span>🚪</span>{{ T . "header.logout"}}
                         </button>
                     </form>
                 </div>
                 {{else}}
 
                 <a href="/login" class="hover:text-church-gold transition-colors flex items-center gap-1">
-                    🔑 Войти
+                    🔑 {{ T . "header.login"}}
                 </a>
                 {{end}}
         </div>
@@ -72,7 +72,7 @@
 {{define "footer"}}
 <footer class="mt-20 pt-12 text-center text-sm font-sans">
     <p class="font-medium text-church-wine mb-8 opacity-80">
-        &copy; 2001—2026 Храм иконы Божией Матери «Державная»
+        {{ T . "footer.copyright"}}
     </p>
 
     <div class="flex items-center w-full bg-church-beige">
