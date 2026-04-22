@@ -51,7 +51,7 @@
                 text-gray-700 hover:bg-white border border-transparent
            {{end}}">
             {{if .Icon}}<span class="mr-2">{{.Icon}}</span>{{end}}
-            {{.Label}}
+            {{T $ .Label}}
         </a>
     </li>
     {{else}}
@@ -70,18 +70,16 @@
 {{end}}
 
 {{define "footer"}}
-<footer class="mt-20 pt-12 text-center text-sm font-sans">
+<footer class="pt-12 text-center text-sm font-sans">
     <p class="font-medium text-church-wine mb-8 opacity-80">
         {{ T . "footer.copyright"}}
     </p>
 
     <div class="flex items-center w-full bg-church-beige">
         <div class="ornament-border flex-1 ornament-left"></div>
-
         <div class="px-3 shrink-0 bg-transparent">
             <img src="/static/images/nika.svg" alt="Ника" class="h-[80px] w-auto border-0 block">
         </div>
-
         <div class="ornament-border flex-1"></div>
     </div>
 </footer>

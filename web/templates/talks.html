@@ -13,10 +13,10 @@
         <div class="flex-1 space-y-8">
             <header class="mb-12">
                 <h2 class="text-2xl text-church-wine uppercase tracking-widest border-l-4 border-church-wine pl-4 mb-2 font-sans">
-                    Вопросы и ответы
+                    {{ T . "talks.title"}}
                 </h2>
                 <p class="text-gray-500 font-serif italic text-sm tracking-wide">
-                    Духовные наставления и ответы на вопросы прихожан
+                    {{ T . "talks.description"}}
                 </p>
             </header>
 
@@ -25,7 +25,7 @@
                 <div class="bg-amber-50/50 p-6 md:p-8 rounded-3xl border border-church-gold/20 shadow-sm transition hover:bg-amber-50/80">
                     <div class="flex flex-wrap items-center justify-between gap-4 mb-6 pb-4 border-b border-church-gold/10 pt-2">
                         <div class="flex items-center gap-2">
-                            <span class="text-church-wine font-bold font-sans uppercase text-[10px] tracking-wider opacity-70">От кого:</span>
+                            <span class="text-church-wine font-bold font-sans uppercase text-[10px] tracking-wider opacity-70">{{ T $ "talks.from"}}</span>
                             <span class="text-gray-900 font-serif font-medium">{{.Name}}</span>
                         </div>
                         <time class="text-[11px] text-church-wine/60 font-sans font-bold uppercase tracking-widest bg-church-wine/5 px-3 py-1 rounded-full">
@@ -44,7 +44,7 @@
                                 ☦
                             </div>
                             <div>
-                                <h4 class="text-church-wine font-bold text-xs uppercase tracking-widest mb-2 font-sans">Ответ священника:</h4>
+                                <h4 class="text-church-wine font-bold text-xs uppercase tracking-widest mb-2 font-sans">{{ T $ "talks.answer"}}</h4>
                                 <div class="text-gray-800 leading-relaxed font-serif whitespace-pre-wrap text-[17px]">{{.Answer}}</div>
                             </div>
                         </div>
@@ -52,16 +52,16 @@
                 </div>
                 {{else}}
                 <div class="text-center py-20 bg-white/20 rounded-3xl border-2 border-dashed border-church-gold/20">
-                    <p class="text-gray-500 font-serif italic text-xl">Вопросов пока нет...</p>
+                    <p class="text-gray-500 font-serif italic text-xl">{{ T . "talks.no_questions"}}</p>
                 </div>
                 {{end}}
             </div>
 
-            {{if .HasNext}}
+            {{if .Page.HasNext}}
             <div class="flex justify-center pt-8">
-                <a href="/talks?cursor_time={{.NextCursorTime}}&cursor_id={{.NextCursorID}}"
+                <a href="/talks?cursor_time={{.Page.NextCursorTime}}&cursor_id={{.Page.NextCursorID}}"
                    class="px-8 py-4 bg-church-wine text-white rounded-full font-sans text-xs uppercase tracking-[0.2em] hover:bg-red-900 transition-all shadow-lg hover:shadow-church-wine/20 transform hover:-translate-y-0.5">
-                    Показать еще вопросы
+                    {{ T . "talks.load_more"}}
                 </a>
             </div>
             {{end}}

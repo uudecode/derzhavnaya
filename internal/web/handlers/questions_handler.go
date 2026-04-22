@@ -5,6 +5,7 @@ import (
 	"Derzhavnaya/internal/db"
 	"Derzhavnaya/internal/web/render"
 	"Derzhavnaya/internal/web/translator"
+	"Derzhavnaya/internal/web/viewmodel"
 	"html/template"
 	"net/http"
 	"strconv"
@@ -27,14 +28,6 @@ func NewQuestionsHandler(queries *db.Queries, cfg *config.Config, renderer *rend
 			Translator: trans,
 		},
 	}
-}
-
-type TalkView struct {
-	ID       int32
-	DataQ    time.Time
-	Name     string
-	Question template.HTML
-	Answer   template.HTML
 }
 
 func (h *QuestionsHandler) Register(r chi.Router) {
@@ -78,12 +71,12 @@ func (h *QuestionsHandler) Talks(w http.ResponseWriter, r *http.Request) {
 		rawItems = items
 	}
 
-	viewItems := make([]TalkView, len(rawItems))
+	viewItems := make([]viewmodel.QuestionView, len(rawItems))
 	for i, item := range rawItems {
 		cleanQ := render.UgcPolicy.Sanitize(item.Question)
 		cleanA := render.UgcPolicy.Sanitize(item.Answer)
 
-		viewItems[i] = TalkView{
+		viewItems[i] = viewmodel.QuestionView{
 			ID:       item.ID,
 			DataQ:    item.DataQ.Time,
 			Name:     item.Name,
@@ -100,13 +93,7 @@ func (h *QuestionsHandler) Talks(w http.ResponseWriter, r *http.Request) {
 		nextCursorID = lastRaw.ID
 	}
 
-	data := map[string]interface{}{
-		"Talks":          viewItems, // Отдаем уже подготовленные TalkView
-		"HasNext":        hasNext,
-		"NextCursorTime": nextCursorTime,
-		"NextCursorID":   nextCursorID,
-		"CurrentPath":    "/talks",
-	}
+	data := viewmodel.NewTalkView(viewItems, hasNext, nextCursorTime, nextCursorID, "/talks")
 
 	h.RenderPage(w, r, "talks.html", data)
 }

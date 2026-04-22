@@ -8,11 +8,11 @@
     <link href="/static/css/style.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
-<body class="bg-church-beige font-serif text-gray-900">
+<body class="bg-church-beige font-serif text-gray-900 min-h-screen flex flex-col">
 {{template "header" .}}
-
-{{block "content" .}}{{end}}
-
+<main class="flex-grow">
+    {{block "content" .}}{{end}}
+</main>
 {{template "footer" .}}
 </body>
 </html>

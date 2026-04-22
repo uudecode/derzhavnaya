@@ -45,6 +45,31 @@ INSERT INTO web.translation (key, lang, value) VALUES ('error.server_error', 'fr
 INSERT INTO web.translation (key, lang, value) VALUES ('footer.copyright', 'ru', '© 2001—2026 Храм иконы Божией Матери «Державная»');
 INSERT INTO web.translation (key, lang, value) VALUES ('footer.copyright', 'en', '© 2001—2026 Church of the Derzhavnaya Icon of the Mother of God');
 INSERT INTO web.translation (key, lang, value) VALUES ('footer.copyright', 'fr', '© 2001—2026 Église de l''icône de la Mère de Dieu «Derzhavnaya»');
+
+INSERT INTO web.translation (key, lang, value) VALUES ('talks.load_more', 'ru', 'Показать еще вопросы');
+INSERT INTO web.translation (key, lang, value) VALUES ('talks.load_more', 'en', 'Show more questions');
+INSERT INTO web.translation (key, lang, value) VALUES ('talks.load_more', 'fr', 'Afficher plus de questions');
+
+INSERT INTO web.translation (key, lang, value) VALUES ('talks.no_questions', 'ru', 'Вопросов пока нет...');
+INSERT INTO web.translation (key, lang, value) VALUES ('talks.no_questions', 'en', 'No questions yet...');
+INSERT INTO web.translation (key, lang, value) VALUES ('talks.no_questions', 'fr', 'Aucune question pour l''instant...');
+
+INSERT INTO web.translation (key, lang, value) VALUES ('talks.title', 'ru', 'Вопросы и ответы');
+INSERT INTO web.translation (key, lang, value) VALUES ('talks.title', 'en', 'Questions and Answers');
+INSERT INTO web.translation (key, lang, value) VALUES ('talks.title', 'fr', 'Questions et réponses');
+
+INSERT INTO web.translation (key, lang, value) VALUES ('talks.description', 'ru', 'Духовные наставления и ответы на вопросы прихожан');
+INSERT INTO web.translation (key, lang, value) VALUES ('talks.description', 'en', 'Spiritual guidance and answers to parishioners’ questions');
+INSERT INTO web.translation (key, lang, value) VALUES ('talks.description', 'fr', 'Conseils spirituels et réponses aux questions des paroissiens');
+
+INSERT INTO web.translation (key, lang, value) VALUES ('talks.from', 'ru', 'От кого:');
+INSERT INTO web.translation (key, lang, value) VALUES ('talks.from', 'en', 'From:');
+INSERT INTO web.translation (key, lang, value) VALUES ('talks.from', 'fr', 'De :');
+
+INSERT INTO web.translation (key, lang, value) VALUES ('talks.priest_answer', 'ru', 'Ответ священника:');
+INSERT INTO web.translation (key, lang, value) VALUES ('talks.priest_answer', 'en', 'Priest’s answer:');
+INSERT INTO web.translation (key, lang, value) VALUES ('talks.priest_answer', 'fr', 'Réponse du prêtre :');
+
 -- +goose StatementEnd
 
 -- +goose Down
@@ -59,4 +84,11 @@ DELETE FROM web.translation WHERE key = 'auth.password_placeholder';
 DELETE FROM web.translation WHERE key = 'auth.error.too_many_attempts';
 DELETE FROM web.translation WHERE key = 'auth.error.invalid_credentials';
 DELETE FROM web.translation WHERE key = 'error.server_error';
+DELETE FROM web.translation WHERE key = 'footer.copyright';
+DELETE FROM web.translation WHERE key = 'talks.load_more';
+DELETE FROM web.translation WHERE key = 'talks.no_questions';
+DELETE FROM web.translation WHERE key = 'talks.title';
+DELETE FROM web.translation WHERE key = 'talks.description';
+DELETE FROM web.translation WHERE key = 'talks.from';
+DELETE FROM web.translation WHERE key = 'talks.priest_answer';
 -- +goose StatementEnd
