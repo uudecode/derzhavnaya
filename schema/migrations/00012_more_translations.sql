@@ -70,6 +70,37 @@ INSERT INTO web.translation (key, lang, value) VALUES ('talks.priest_answer', 'r
 INSERT INTO web.translation (key, lang, value) VALUES ('talks.priest_answer', 'en', 'Priest’s answer:');
 INSERT INTO web.translation (key, lang, value) VALUES ('talks.priest_answer', 'fr', 'Réponse du prêtre :');
 
+-- Храм во имя иконы Божией Матери (Верхняя часть заголовка)
+INSERT INTO web.translation (key, lang, value) VALUES ('index.church_name', 'ru', 'Храм во имя иконы Божией Матери');
+INSERT INTO web.translation (key, lang, value) VALUES ('index.church_name', 'en', 'Church of the icon of the Mother of God');
+INSERT INTO web.translation (key, lang, value) VALUES ('index.church_name', 'fr', 'Église de l''icône de la Mère de Dieu');
+
+-- «ДЕРЖАВНАЯ» (Основное название иконы)
+INSERT INTO web.translation (key, lang, value) VALUES ('index.icon_name', 'ru', '«ДЕРЖАВНАЯ»');
+INSERT INTO web.translation (key, lang, value) VALUES ('index.icon_name', 'en', '«DERZHAVNAYA»');
+INSERT INTO web.translation (key, lang, value) VALUES ('index.icon_name', 'fr', '«DERZHAVNAYA»');
+
+
+-- «Добро пожаловать в наш приход»
+INSERT INTO web.translation (key, lang, value) VALUES ('index.welcome', 'ru', 'Добро пожаловать в наш приход');
+INSERT INTO web.translation (key, lang, value) VALUES ('index.welcome', 'en', 'Welcome to our parish');
+INSERT INTO web.translation (key, lang, value) VALUES ('index.welcome', 'fr', 'Bienvenue dans notre paroisse');
+
+-- Икона «Державная»
+INSERT INTO web.translation (key, lang, value) VALUES ('index.icon_title', 'ru', 'Икона «Державная»');
+INSERT INTO web.translation (key, lang, value) VALUES ('index.icon_title', 'en', 'Derzhavnaya Icon');
+INSERT INTO web.translation (key, lang, value) VALUES ('index.icon_title', 'fr', 'Icône «Derzhavnaya»');
+
+-- Наш храм — это место молитвы и утешения...
+INSERT INTO web.translation (key, lang, value) VALUES ('index.hero_text', 'ru', 'Наш храм — это место молитвы и утешения. Мы рады приветствовать вас на обновленном сайте.');
+INSERT INTO web.translation (key, lang, value) VALUES ('index.hero_text', 'en', 'Our church is a place of prayer and comfort. We are glad to welcome you to our updated website.');
+INSERT INTO web.translation (key, lang, value) VALUES ('index.hero_text', 'fr', 'Notre église est un lieu de prière et de réconfort. Nous sommes heureux de vous accueillir sur notre site mis à jour.');
+
+-- События прихода
+INSERT INTO web.translation (key, lang, value) VALUES ('index.events_title', 'ru', 'События прихода');
+INSERT INTO web.translation (key, lang, value) VALUES ('index.events_title', 'en', 'Parish events');
+INSERT INTO web.translation (key, lang, value) VALUES ('index.events_title', 'fr', 'Événements de la paroisse');
+
 -- +goose StatementEnd
 
 -- +goose Down
@@ -91,4 +122,5 @@ DELETE FROM web.translation WHERE key = 'talks.title';
 DELETE FROM web.translation WHERE key = 'talks.description';
 DELETE FROM web.translation WHERE key = 'talks.from';
 DELETE FROM web.translation WHERE key = 'talks.priest_answer';
+DELETE FROM web.translation WHERE key LIKE 'index.%';
 -- +goose StatementEnd
