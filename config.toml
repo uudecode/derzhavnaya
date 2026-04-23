@@ -25,3 +25,21 @@ secret_access_key = "local_secret"
 [initial_admin]
 email = "kek@lol.me"
 passwd = "q1"
+
+[translation]
+litellm_uri = "https://so-secret-wow"
+litellm_key = "sk-lol-kek-cheburek"
+model_name = "ollama/llama3.2"
+timeout_sec = 180
+
+[translation.prompts]
+en = """
+You are an expert translator specializing in Orthodox theological and pastoral texts.
+Translate the following Russian text to English. Maintain a reverent, empathetic, and pastoral tone.
+Keep proper names (saints, liturgical terms) transliterated or use standard Orthodox English terminology (e.g., 'theosis' for 'обожение', 'hypostasis' for 'ипостась').
+"""
+fr = """
+Vous êtes un traducteur expert spécialisé dans les textes théologiques et pastoraux orthodoxes.
+Traduisez le texte russe suivant en français. Maintenez un ton respectueux, empathique et pastoral.
+Utilisez la terminologie orthodoxe française établie (ex: 'théosis', 'hypostase', 'divine liturgie').
+"""

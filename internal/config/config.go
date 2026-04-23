@@ -14,10 +14,11 @@ var Module = fx.Options(
 )
 
 type Config struct {
-	App          AppConfig      `mapstructure:"app"`
-	Database     DatabaseConfig `mapstructure:"database"`
-	S3           S3Config       `mapstructure:"s3"`
-	InitialAdmin AdminConfig    `mapstructure:"initial_admin"`
+	App          AppConfig         `mapstructure:"app"`
+	Database     DatabaseConfig    `mapstructure:"database"`
+	S3           S3Config          `mapstructure:"s3"`
+	InitialAdmin AdminConfig       `mapstructure:"initial_admin"`
+	Translation  TranslationConfig `mapstructure:"translation"`
 }
 
 type AppConfig struct {
@@ -44,6 +45,10 @@ func (db DatabaseConfig) DSN() string {
 		db.Host, db.Port, db.User, db.Password, db.Name, db.SSLMode)
 }
 
+func (db DatabaseConfig) String() string {
+	return fmt.Sprintf("host=%s, port=%d, name=%s, user=%s, sslmode=%s", db.Host, db.Port, db.Name, db.User, db.SSLMode)
+}
+
 type S3Config struct {
 	Region          string `mapstructure:"region"`
 	Endpoint        string `mapstructure:"endpoint"`
@@ -54,9 +59,29 @@ type S3Config struct {
 	DebugS3         bool   `mapstructure:"debug_s3"`
 }
 
+func (s S3Config) String() string {
+	return fmt.Sprintf("region=%s, endpoint=%s, bucket=%s, public_base_url=%s", s.Region, s.Endpoint, s.Bucket, s.PublicBaseURL)
+}
+
 type AdminConfig struct {
 	Email    string `mapstructure:"email"`
 	Password string `mapstructure:"password"`
+}
+
+func (a AdminConfig) String() string {
+	return fmt.Sprintf("email=****, password=****")
+}
+
+type TranslationConfig struct {
+	LiteLLMUrl string            `mapstructure:"litellm_url"`
+	LiteLLMKey string            `mapstructure:"litellm_key"`
+	ModelName  string            `mapstructure:"model_name"`
+	Prompts    map[string]string `mapstructure:"prompts"`
+	TimeoutSec int               `mapstructure:"timeout_sec"`
+}
+
+func (t TranslationConfig) String() string {
+	return fmt.Sprintf("url=%s, key=****", t.LiteLLMUrl)
 }
 
 func Load() (*Config, error) {
@@ -91,6 +116,10 @@ func Load() (*Config, error) {
 		"s3.debug_s3":                "DEBUG_S3",
 		"initial_admin.email":        "INITIAL_ADMIN_EMAIL",
 		"initial_admin.password":     "INITIAL_ADMIN_PASSWORD",
+		"translation.litellm_url":    "TRANSLATION_LITELLM_URL",
+		"translation.litellm_key":    "TRANSLATION_LITELLM_KEY",
+		"translation.model_name":     "TRANSLATION_MODEL_NAME",
+		"translation.timeout_sec":    "TRANSLATION_TIMEOUT_SEC",
 	}
 
 	for key, env := range bindings {

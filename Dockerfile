@@ -22,6 +22,6 @@ WORKDIR /root/
 
 COPY --from=builder /app/server .
 COPY --from=builder /app/config.toml .
-
+COPY glossary.json  /glossary.json
 EXPOSE 8080
 CMD ["./server"]
