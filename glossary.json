@@ -1,0 +1,2000 @@
+{
+  "biblical_and_doctrinal_terms": {
+    "блаженный": {
+      "en": "blessed",
+      "fr": "bienheureux"
+    },
+    "боговоплощение": {
+      "en": "Incarnation",
+      "fr": "Incarnation"
+    },
+    "богородица": {
+      "en": "Theotokos / Mother of God",
+      "fr": "Mère de Dieu / Théotokos"
+    },
+    "воскресение": {
+      "en": "Resurrection",
+      "fr": "Résurrection"
+    },
+    "исповедник": {
+      "en": "confessor",
+      "fr": "confesseur"
+    },
+    "канонизация": {
+      "en": "canonization",
+      "fr": "canonisation"
+    },
+    "мощи": {
+      "en": "relics",
+      "fr": "reliques"
+    },
+    "мученик": {
+      "en": "martyr",
+      "fr": "martyr"
+    },
+    "праведный": {
+      "en": "righteous",
+      "fr": "juste"
+    },
+    "преподобный": {
+      "en": "venerable / monastic saint",
+      "fr": "vénérable / saint moine"
+    },
+    "пресвятая богородица": {
+      "en": "the Most Holy Theotokos",
+      "fr": "la Très Sainte Mère de Dieu"
+    },
+    "приснодева": {
+      "en": "Ever-Virgin",
+      "fr": "Toujours-Vierge"
+    },
+    "святой": {
+      "en": "saint",
+      "fr": "saint"
+    },
+    "священное писание": {
+      "en": "Holy Scripture",
+      "fr": "Sainte Écriture"
+    },
+    "священное предание": {
+      "en": "Holy Tradition",
+      "fr": "Sainte Tradition"
+    },
+    "символ веры": {
+      "en": "the Creed",
+      "fr": "le Symbole de foi"
+    },
+    "спаситель": {
+      "en": "Savior",
+      "fr": "Sauveur"
+    },
+    "троица": {
+      "en": "the Trinity",
+      "fr": "la Trinité"
+    },
+    "угодник божий": {
+      "en": "saint / pleaser of God",
+      "fr": "saint / serviteur agréable à Dieu"
+    },
+    "чудотворец": {
+      "en": "wonderworker",
+      "fr": "thaumaturge"
+    }
+  },
+  "church_space_and_objects": {
+    "алтарь": {
+      "en": "altar / sanctuary",
+      "fr": "autel / sanctuaire"
+    },
+    "амвон": {
+      "en": "ambo",
+      "fr": "ambon"
+    },
+    "аналой": {
+      "en": "lectern / analogion",
+      "fr": "lutrin / analogion"
+    },
+    "диаконские двери": {
+      "en": "deacon's doors",
+      "fr": "portes diaconales"
+    },
+    "дискос": {
+      "en": "diskos / paten",
+      "fr": "diskos / patène"
+    },
+    "епитрахиль": {
+      "en": "epitrachelion / stole",
+      "fr": "étole sacerdotale / épitrakhélion"
+    },
+    "звездица": {
+      "en": "asterisk",
+      "fr": "astérisque liturgique"
+    },
+    "икона": {
+      "en": "icon",
+      "fr": "icône"
+    },
+    "иконостас": {
+      "en": "iconostasis",
+      "fr": "iconostase"
+    },
+    "кадильница": {
+      "en": "censer",
+      "fr": "encensoir"
+    },
+    "клирос": {
+      "en": "choir stand / kliros",
+      "fr": "stalle du chœur / kliros"
+    },
+    "копие": {
+      "en": "liturgical spear / lance",
+      "fr": "lance liturgique"
+    },
+    "крест": {
+      "en": "cross",
+      "fr": "croix"
+    },
+    "купель": {
+      "en": "baptismal font",
+      "fr": "fonts baptismaux"
+    },
+    "лампада": {
+      "en": "vigil lamp",
+      "fr": "lampe votive"
+    },
+    "лжица": {
+      "en": "Communion spoon",
+      "fr": "cuillère de communion"
+    },
+    "облачение": {
+      "en": "vestment",
+      "fr": "vêtement liturgique / ornements"
+    },
+    "образ": {
+      "en": "holy image / icon",
+      "fr": "image sainte / icône"
+    },
+    "подрясник": {
+      "en": "cassock undergarment / podryasnik",
+      "fr": "podriasnik / sous-cassock"
+    },
+    "подсвечник": {
+      "en": "candle stand",
+      "fr": "chandelier à cierges"
+    },
+    "пономарь": {
+      "en": "altar server / sexton",
+      "fr": "servant d'autel / sacristain"
+    },
+    "потир": {
+      "en": "chalice",
+      "fr": "calice"
+    },
+    "приход": {
+      "en": "parish",
+      "fr": "paroisse"
+    },
+    "прихожанин": {
+      "en": "parishioner",
+      "fr": "paroissien"
+    },
+    "распятие": {
+      "en": "crucifix",
+      "fr": "crucifix"
+    },
+    "ризница": {
+      "en": "sacristy / vestry",
+      "fr": "sacristie"
+    },
+    "ряса": {
+      "en": "cassock",
+      "fr": "soutane / rason"
+    },
+    "свеча": {
+      "en": "candle",
+      "fr": "bougie"
+    },
+    "святая вода": {
+      "en": "holy water",
+      "fr": "eau bénite"
+    },
+    "солея": {
+      "en": "solea",
+      "fr": "soléa"
+    },
+    "фелонь": {
+      "en": "phelonion",
+      "fr": "phélonion"
+    },
+    "храм": {
+      "en": "church / temple",
+      "fr": "église / temple"
+    },
+    "царские врата": {
+      "en": "Royal Doors",
+      "fr": "Portes royales"
+    },
+    "церковь": {
+      "en": "church",
+      "fr": "église"
+    }
+  },
+  "clerical_ranks": {
+    "архиепископ": {
+      "en": "archbishop",
+      "fr": "archevêque"
+    },
+    "владыка": {
+      "en": "Bishop / Your Grace / Vladyka",
+      "fr": "Évêque / Monseigneur / Vladyka"
+    },
+    "диакон": {
+      "en": "deacon",
+      "fr": "diacre"
+    },
+    "епископ": {
+      "en": "bishop",
+      "fr": "évêque"
+    },
+    "иерей": {
+      "en": "priest / presbyter",
+      "fr": "prêtre / presbytre"
+    },
+    "митрополит": {
+      "en": "metropolitan",
+      "fr": "métropolite"
+    },
+    "патриарх": {
+      "en": "patriarch",
+      "fr": "patriarche"
+    },
+    "протодиакон": {
+      "en": "protodeacon",
+      "fr": "protodiacre"
+    },
+    "протоиерей": {
+      "en": "archpriest",
+      "fr": "archiprêtre"
+    },
+    "священник": {
+      "en": "priest",
+      "fr": "prêtre"
+    }
+  },
+  "common_phrases": {
+    "Господи, вразуми": {
+      "en": "Lord, enlighten me / give me understanding",
+      "fr": "Seigneur, éclaire-moi"
+    },
+    "Господи, помилуй": {
+      "en": "Lord, have mercy",
+      "fr": "Seigneur, aie pitié"
+    },
+    "Господи, помоги": {
+      "en": "Lord, help me",
+      "fr": "Seigneur, aide-moi"
+    },
+    "Господи, укрепи": {
+      "en": "Lord, strengthen me",
+      "fr": "Seigneur, fortifie-moi"
+    },
+    "Пресвятая Богородице, спаси нас": {
+      "en": "Most Holy Theotokos, save us",
+      "fr": "Très Sainte Mère de Dieu, sauve-nous"
+    },
+    "аминь": {
+      "en": "Amen",
+      "fr": "Amen"
+    },
+    "в добрый час": {
+      "en": "at a good hour / with a blessing",
+      "fr": "à bonne heure / avec bénédiction"
+    },
+    "взять благословение у батюшки": {
+      "en": "to receive a blessing from Father",
+      "fr": "recevoir une bénédiction du prêtre"
+    },
+    "во славу Божию": {
+      "en": "for the glory of God",
+      "fr": "pour la gloire de Dieu"
+    },
+    "жить по-христиански": {
+      "en": "to live as a Christian",
+      "fr": "vivre en chrétien"
+    },
+    "заказать молебен": {
+      "en": "to request a moleben",
+      "fr": "demander un molieben"
+    },
+    "заказать панихиду": {
+      "en": "to request a memorial service",
+      "fr": "demander un office commémoratif"
+    },
+    "заказать сорокоуст": {
+      "en": "to request a Sorokoust",
+      "fr": "demander un Sorokoust"
+    },
+    "и ныне и присно и во веки веков": {
+      "en": "both now and ever and unto the ages of ages",
+      "fr": "maintenant et toujours et dans les siècles des siècles"
+    },
+    "исправить жизнь": {
+      "en": "to amend one's life",
+      "fr": "corriger sa vie"
+    },
+    "многогрешная": {
+      "en": "greatly sinful",
+      "fr": "très pécheresse"
+    },
+    "многогрешный": {
+      "en": "greatly sinful",
+      "fr": "très pécheur"
+    },
+    "молитвами святого": {
+      "en": "through the prayers of Saint",
+      "fr": "par les prières de Saint"
+    },
+    "молитесь за меня": {
+      "en": "pray for me",
+      "fr": "priez pour moi"
+    },
+    "на всё воля Божия": {
+      "en": "God's will be done / all is according to God's will",
+      "fr": "que la volonté de Dieu soit faite"
+    },
+    "не без Промысла Божия": {
+      "en": "not without God's providence",
+      "fr": "ce n'est pas sans la providence de Dieu"
+    },
+    "недостойная": {
+      "en": "unworthy",
+      "fr": "indigne"
+    },
+    "недостойный": {
+      "en": "unworthy",
+      "fr": "indigne"
+    },
+    "отойти ко Господу": {
+      "en": "to depart to the Lord",
+      "fr": "partir vers le Seigneur"
+    },
+    "по молитвам": {
+      "en": "through the prayers of",
+      "fr": "par les prières de"
+    },
+    "по молитвам Богородицы": {
+      "en": "through the prayers of the Mother of God",
+      "fr": "par les prières de la Mère de Dieu"
+    },
+    "по молитвам святых отцов": {
+      "en": "through the prayers of the holy fathers",
+      "fr": "par les prières des saints Pères"
+    },
+    "по немощи": {
+      "en": "out of weakness / because of human frailty",
+      "fr": "par faiblesse"
+    },
+    "по немощи человеческой": {
+      "en": "because of human weakness",
+      "fr": "à cause de la faiblesse humaine"
+    },
+    "подойти под благословение": {
+      "en": "to come for a blessing",
+      "fr": "venir recevoir une bénédiction"
+    },
+    "помолитесь обо мне": {
+      "en": "please pray for me",
+      "fr": "priez pour moi"
+    },
+    "помолиться о здравии": {
+      "en": "to pray for health / for the living",
+      "fr": "prier pour la santé / pour les vivants"
+    },
+    "помолиться об упокоении": {
+      "en": "to pray for the repose",
+      "fr": "prier pour le repos de l'âme"
+    },
+    "помяни, Господи": {
+      "en": "remember, O Lord",
+      "fr": "souviens-Toi, Seigneur"
+    },
+    "помянуть в алтаре": {
+      "en": "to commemorate in the altar",
+      "fr": "commémorer dans le sanctuaire"
+    },
+    "помянуть на литургии": {
+      "en": "to commemorate at the Divine Liturgy",
+      "fr": "commémorer à la Divine Liturgie"
+    },
+    "помянуть на проскомидии": {
+      "en": "to commemorate at the Proskomedia",
+      "fr": "commémorer à la Proskomédie"
+    },
+    "помянуть усопшего": {
+      "en": "to commemorate the departed",
+      "fr": "commémorer le défunt"
+    },
+    "поставить свечку": {
+      "en": "to light and place a candle",
+      "fr": "allumer et déposer un cierge"
+    },
+    "поставить свечу": {
+      "en": "to light and place a candle",
+      "fr": "allumer et déposer un cierge"
+    },
+    "почить о Господе": {
+      "en": "to fall asleep in the Lord",
+      "fr": "s'endormir dans le Seigneur"
+    },
+    "прикладываться к иконе": {
+      "en": "to venerate / kiss an icon",
+      "fr": "vénérer / embrasser une icône"
+    },
+    "прикладываться к мощам": {
+      "en": "to venerate the relics",
+      "fr": "vénérer les reliques"
+    },
+    "приложиться к иконе": {
+      "en": "to venerate / kiss an icon",
+      "fr": "vénérer / embrasser une icône"
+    },
+    "принести покаяние": {
+      "en": "to bring repentance / to repent sincerely",
+      "fr": "apporter une vraie repentance"
+    },
+    "прости, Господи": {
+      "en": "forgive me, Lord",
+      "fr": "pardonne-moi, Seigneur"
+    },
+    "с Богом": {
+      "en": "go with God / with God",
+      "fr": "avec Dieu"
+    },
+    "святый угодниче Божий": {
+      "en": "holy servant / saint of God",
+      "fr": "saint serviteur de Dieu"
+    },
+    "слава Богу за всё": {
+      "en": "glory to God for everything",
+      "fr": "gloire à Dieu pour tout"
+    },
+    "слава Отцу и Сыну и Святому Духу": {
+      "en": "glory to the Father and to the Son and to the Holy Spirit",
+      "fr": "gloire au Père, au Fils et au Saint-Esprit"
+    },
+    "слава Тебе, Господи": {
+      "en": "glory to You, O Lord",
+      "fr": "gloire à Toi, Seigneur"
+    },
+    "со страхом Божиим": {
+      "en": "with the fear of God",
+      "fr": "avec la crainte de Dieu"
+    },
+    "со страхом Божиим и верою приступите": {
+      "en": "with the fear of God and faith draw near",
+      "fr": "approchez avec crainte de Dieu et foi"
+    },
+    "упокоилась": {
+      "en": "reposed / passed away",
+      "fr": "s'est endormie dans le Seigneur / est décédée"
+    },
+    "упокоился": {
+      "en": "reposed / passed away",
+      "fr": "s'est endormi dans le Seigneur / est décédé"
+    },
+    "упокой, Господи": {
+      "en": "grant rest, O Lord",
+      "fr": "accorde le repos, Seigneur"
+    },
+    "христианская кончина": {
+      "en": "a Christian end / death",
+      "fr": "une fin chrétienne"
+    }
+  },
+  "false_friends_and_disambiguation": {
+    "враг": {
+      "en": "the enemy (often the devil in ascetic context)",
+      "fr": "l'ennemi (souvent le diable dans le contexte ascétique)"
+    },
+    "вражий": {
+      "en": "of the enemy / demonic",
+      "fr": "de l'ennemi / démoniaque"
+    },
+    "исцеление": {
+      "en": "healing",
+      "fr": "guérison"
+    },
+    "лукавый": {
+      "en": "the Evil One",
+      "fr": "le Malin"
+    },
+    "мир": {
+      "en": "peace / world (context-dependent)",
+      "fr": "paix / monde (selon le contexte)"
+    },
+    "мирской": {
+      "en": "worldly / secular",
+      "fr": "mondain / séculier"
+    },
+    "мирянин": {
+      "en": "layperson",
+      "fr": "laïc"
+    },
+    "мирянка": {
+      "en": "female layperson",
+      "fr": "laïque"
+    },
+    "образ": {
+      "en": "holy image / icon, not just 'image' in church context",
+      "fr": "image sainte / icône, pas seulement 'image'"
+    },
+    "подвиг": {
+      "en": "spiritual labor / ascetic feat",
+      "fr": "labeur spirituel / exploit ascétique"
+    },
+    "подвизаться": {
+      "en": "to labor spiritually / strive ascetically",
+      "fr": "s'exercer spirituellement / lutter ascétiquement"
+    },
+    "помазание": {
+      "en": "anointing",
+      "fr": "onction"
+    },
+    "помысл": {
+      "en": "thought / tempting thought",
+      "fr": "pensée / pensée tentatrice"
+    },
+    "помыслы": {
+      "en": "thoughts / tempting thoughts",
+      "fr": "pensées / pensées tentatrices"
+    },
+    "прелесть": {
+      "en": "spiritual delusion, not 'charm' in ascetic context",
+      "fr": "illusion spirituelle, et non 'charme' dans le contexte ascétique"
+    },
+    "приобщение": {
+      "en": "receiving Communion",
+      "fr": "réception de la communion"
+    },
+    "приобщиться": {
+      "en": "to receive Communion",
+      "fr": "recevoir la communion"
+    },
+    "причащение": {
+      "en": "Communion / receiving Communion",
+      "fr": "communion / réception de la communion"
+    },
+    "сердце": {
+      "en": "heart (often spiritual inner self)",
+      "fr": "cœur (souvent au sens spirituel)"
+    },
+    "смиренномудрие": {
+      "en": "humble-mindedness",
+      "fr": "humilité de l'esprit"
+    },
+    "страсть": {
+      "en": "passion (usually sinful passion in church context)",
+      "fr": "passion (souvent au sens spirituel négatif)"
+    },
+    "целомудрие": {
+      "en": "chastity / integrity of mind",
+      "fr": "chasteté / pureté intégrale"
+    },
+    "чудо": {
+      "en": "miracle",
+      "fr": "miracle"
+    }
+  },
+  "feasts_and_fasts": {
+    "благовещение": {
+      "en": "Annunciation",
+      "fr": "Annonciation"
+    },
+    "богоявление": {
+      "en": "Theophany",
+      "fr": "Théophanie"
+    },
+    "великий пост": {
+      "en": "Great Lent",
+      "fr": "Grand Carême"
+    },
+    "вознесение": {
+      "en": "Ascension",
+      "fr": "Ascension"
+    },
+    "вход господень в иерусалим": {
+      "en": "Entry of the Lord into Jerusalem / Palm Sunday",
+      "fr": "Entrée du Seigneur à Jérusalem / Dimanche des Rameaux"
+    },
+    "крещение господне": {
+      "en": "Baptism of the Lord",
+      "fr": "Baptême du Seigneur"
+    },
+    "мясопуст": {
+      "en": "Meatfare",
+      "fr": "dernier jour avant l'abstinence de viande"
+    },
+    "пасха": {
+      "en": "Pascha / Easter",
+      "fr": "Pâques / Pascha"
+    },
+    "петров пост": {
+      "en": "Apostles' Fast",
+      "fr": "Jeûne des Apôtres"
+    },
+    "покров": {
+      "en": "Protection of the Mother of God",
+      "fr": "Protection de la Mère de Dieu"
+    },
+    "преображение": {
+      "en": "Transfiguration",
+      "fr": "Transfiguration"
+    },
+    "прощёное воскресенье": {
+      "en": "Forgiveness Sunday",
+      "fr": "Dimanche du pardon"
+    },
+    "пятидесятница": {
+      "en": "Pentecost",
+      "fr": "Pentecôte"
+    },
+    "радоница": {
+      "en": "Radonitsa",
+      "fr": "Radonitsa"
+    },
+    "родительская суббота": {
+      "en": "Soul Saturday / memorial Saturday",
+      "fr": "samedi des défunts / samedi mémoriel"
+    },
+    "рождественский пост": {
+      "en": "Nativity Fast",
+      "fr": "Carême de la Nativité"
+    },
+    "рождество христово": {
+      "en": "Nativity of Christ",
+      "fr": "Nativité du Christ"
+    },
+    "светлая седмица": {
+      "en": "Bright Week",
+      "fr": "Semaine lumineuse"
+    },
+    "святки": {
+      "en": "the Holy Days after Nativity",
+      "fr": "les jours saints après la Nativité"
+    },
+    "страстная седмица": {
+      "en": "Holy Week",
+      "fr": "Semaine sainte"
+    },
+    "сыропуст": {
+      "en": "Cheesefare",
+      "fr": "dernier jour avant l'abstinence des laitages"
+    },
+    "троица": {
+      "en": "Trinity Sunday / Pentecost",
+      "fr": "Dimanche de la Trinité / Pentecôte"
+    },
+    "успение": {
+      "en": "Dormition",
+      "fr": "Dormition"
+    },
+    "успенский пост": {
+      "en": "Dormition Fast",
+      "fr": "Jeûne de la Dormition"
+    }
+  },
+  "frequent_qa_patterns": {
+    "за что мне это": {
+      "en": "why has this happened to me",
+      "fr": "pourquoi cela m'arrive-t-il"
+    },
+    "как исповедоваться": {
+      "en": "how to go to confession",
+      "fr": "comment se confesser"
+    },
+    "как молиться": {
+      "en": "how to pray",
+      "fr": "comment prier"
+    },
+    "как пережить скорбь": {
+      "en": "how to endure sorrow / affliction",
+      "fr": "comment traverser l'affliction"
+    },
+    "как подготовиться к исповеди": {
+      "en": "how to prepare for confession",
+      "fr": "comment se préparer à la confession"
+    },
+    "как подготовиться к причастию": {
+      "en": "how to prepare for Holy Communion",
+      "fr": "comment se préparer à la Sainte Communion"
+    },
+    "как поминать усопших": {
+      "en": "how to commemorate the departed",
+      "fr": "comment commémorer les défunts"
+    },
+    "как причащаться": {
+      "en": "how to receive Communion",
+      "fr": "comment communier"
+    },
+    "можно ли без исповеди причащаться": {
+      "en": "is it permissible to receive Communion without confession",
+      "fr": "peut-on communier sans confession"
+    },
+    "можно ли в пост": {
+      "en": "is it permissible during a fast",
+      "fr": "est-ce permis pendant le jeûne"
+    },
+    "можно ли заказывать сорокоуст": {
+      "en": "is it permissible to request a Sorokoust",
+      "fr": "peut-on demander un Sorokoust"
+    },
+    "можно ли исповедоваться": {
+      "en": "is it permissible to go to confession",
+      "fr": "est-il permis de se confesser"
+    },
+    "можно ли некрещеному": {
+      "en": "is it permissible for an unbaptized person",
+      "fr": "est-ce permis à une personne non baptisée"
+    },
+    "можно ли отпевать": {
+      "en": "is it permissible to serve a funeral service",
+      "fr": "peut-on célébrer un office des funérailles"
+    },
+    "можно ли подавать записки": {
+      "en": "is it permissible to submit commemoration slips",
+      "fr": "peut-on déposer des intentions de commémoration"
+    },
+    "можно ли причащаться": {
+      "en": "is it permissible to receive Holy Communion",
+      "fr": "est-il permis de communier"
+    },
+    "надо ли поститься": {
+      "en": "is fasting necessary",
+      "fr": "faut-il jeûner"
+    },
+    "о чем молиться": {
+      "en": "what to pray for",
+      "fr": "pour quoi prier"
+    },
+    "почему Господь попускает": {
+      "en": "why the Lord allows this",
+      "fr": "pourquoi le Seigneur permet cela"
+    },
+    "что говорить на исповеди": {
+      "en": "what to say in confession",
+      "fr": "que dire en confession"
+    },
+    "что делать если согрешил": {
+      "en": "what to do if one has sinned",
+      "fr": "que faire si l'on a péché"
+    }
+  },
+  "high_priority_overrides": {
+    "Богородица": {
+      "en": "Theotokos / Mother of God",
+      "fr": "Mère de Dieu / Théotokos"
+    },
+    "Воскресение": {
+      "en": "Resurrection",
+      "fr": "Résurrection"
+    },
+    "Господь": {
+      "en": "the Lord",
+      "fr": "le Seigneur"
+    },
+    "Пресвятая Богородица": {
+      "en": "the Most Holy Theotokos",
+      "fr": "la Très Sainte Mère de Dieu"
+    },
+    "Промысл Божий": {
+      "en": "God's providence",
+      "fr": "la providence de Dieu"
+    },
+    "Святой Дух": {
+      "en": "the Holy Spirit",
+      "fr": "le Saint-Esprit"
+    },
+    "Священное Писание": {
+      "en": "Holy Scripture",
+      "fr": "Sainte Écriture"
+    },
+    "Священное Предание": {
+      "en": "Holy Tradition",
+      "fr": "Sainte Tradition"
+    },
+    "Спаситель": {
+      "en": "the Savior",
+      "fr": "le Sauveur"
+    },
+    "Троица": {
+      "en": "the Trinity",
+      "fr": "la Trinité"
+    },
+    "Царствие Небесное": {
+      "en": "the Kingdom of Heaven",
+      "fr": "le Royaume des cieux"
+    },
+    "благодать": {
+      "en": "grace",
+      "fr": "grâce"
+    },
+    "вечная память": {
+      "en": "Memory eternal",
+      "fr": "Mémoire éternelle"
+    },
+    "воплощение": {
+      "en": "Incarnation",
+      "fr": "Incarnation"
+    },
+    "ипостась": {
+      "en": "hypostasis",
+      "fr": "hypostase"
+    },
+    "мощи": {
+      "en": "relics",
+      "fr": "reliques"
+    },
+    "обожение": {
+      "en": "theosis",
+      "fr": "théosis"
+    },
+    "святыни": {
+      "en": "holy things / shrines",
+      "fr": "choses saintes / sanctuaires"
+    },
+    "святыня": {
+      "en": "holy thing / shrine",
+      "fr": "chose sainte / sanctuaire"
+    },
+    "спасение": {
+      "en": "salvation",
+      "fr": "salut"
+    },
+    "угодник Божий": {
+      "en": "saint / servant pleasing to God",
+      "fr": "saint / serviteur agréable à Dieu"
+    }
+  },
+  "liturgical_terms": {
+    "агнец": {
+      "en": "the Lamb (Eucharistic bread portion)",
+      "fr": "l'Agneau (portion eucharistique)"
+    },
+    "акафист": {
+      "en": "Akathist",
+      "fr": "Acathiste"
+    },
+    "антидор": {
+      "en": "antidoron",
+      "fr": "antidoron"
+    },
+    "антиминс": {
+      "en": "antimension",
+      "fr": "antimension"
+    },
+    "апостол": {
+      "en": "Epistle reading / Apostolos",
+      "fr": "lecture de l'Épître / Apostolos"
+    },
+    "артос": {
+      "en": "artos",
+      "fr": "artos"
+    },
+    "благословение хлебов": {
+      "en": "blessing of loaves",
+      "fr": "bénédiction des pains"
+    },
+    "великий вход": {
+      "en": "Great Entrance",
+      "fr": "Grande Entrée"
+    },
+    "венчание": {
+      "en": "Marriage crowning / wedding service",
+      "fr": "couronnement du mariage / office du mariage"
+    },
+    "вечерня": {
+      "en": "Vespers",
+      "fr": "Vêpres"
+    },
+    "возглас": {
+      "en": "liturgical exclamation",
+      "fr": "exclamation liturgique"
+    },
+    "воздух": {
+      "en": "aër (veil over the Holy Gifts)",
+      "fr": "aër (voile sur les Saints Dons)"
+    },
+    "всенощное бдение": {
+      "en": "All-Night Vigil",
+      "fr": "Vigile nocturne"
+    },
+    "вынос чаши": {
+      "en": "bringing out the chalice",
+      "fr": "sortie du calice"
+    },
+    "вынуть частицу": {
+      "en": "to remove a commemorative particle",
+      "fr": "retirer une particule commémorative"
+    },
+    "горнее место": {
+      "en": "high place behind the altar",
+      "fr": "haut-lieu derrière l'autel"
+    },
+    "дароносица": {
+      "en": "pyx / vessel for the Holy Gifts",
+      "fr": "custode / récipient pour les Saints Dons"
+    },
+    "дарохранительница": {
+      "en": "tabernacle / reserved sacrament shrine",
+      "fr": "tabernacle / réserve eucharistique"
+    },
+    "дискос": {
+      "en": "diskos / paten",
+      "fr": "diskos / patène"
+    },
+    "достойно есть": {
+      "en": "It is Truly Meet",
+      "fr": "Il est vraiment digne"
+    },
+    "евангелие": {
+      "en": "Gospel reading",
+      "fr": "lecture de l'Évangile"
+    },
+    "евхаристия": {
+      "en": "the Eucharist",
+      "fr": "l'Eucharistie"
+    },
+    "ектения": {
+      "en": "litany",
+      "fr": "litanie"
+    },
+    "елеосвящение": {
+      "en": "Anointing of the Sick / Holy Unction",
+      "fr": "Onction des malades / Sainte Onction"
+    },
+    "жертвенник": {
+      "en": "table of oblation / prothesis",
+      "fr": "table d'offrande / prothèse"
+    },
+    "задостойник": {
+      "en": "hymn to the Mother of God after the consecration",
+      "fr": "hymne à la Mère de Dieu après la consécration"
+    },
+    "закрыть царские врата": {
+      "en": "to close the Royal Doors",
+      "fr": "fermer les Portes royales"
+    },
+    "заочное отпевание": {
+      "en": "funeral service in absentia",
+      "fr": "office funèbre en l'absence du défunt"
+    },
+    "запивка": {
+      "en": "warm wine and bread after Communion",
+      "fr": "vin tiède et pain après la communion"
+    },
+    "записка о здравии": {
+      "en": "commemoration slip for the living",
+      "fr": "intention de commémoration pour les vivants"
+    },
+    "записка о упокоении": {
+      "en": "commemoration slip for the departed",
+      "fr": "intention de commémoration pour les défunts"
+    },
+    "записочка": {
+      "en": "prayer request / commemoration slip",
+      "fr": "intention de prière"
+    },
+    "заупокойный": {
+      "en": "for the departed / requiem",
+      "fr": "pour les défunts / de requiem"
+    },
+    "звездица": {
+      "en": "asterisk",
+      "fr": "astérisque liturgique"
+    },
+    "ипостась": {
+      "en": "hypostasis",
+      "fr": "hypostase"
+    },
+    "ирмос": {
+      "en": "irmos",
+      "fr": "irmos"
+    },
+    "исповедь": {
+      "en": "Confession",
+      "fr": "Confession"
+    },
+    "кадило": {
+      "en": "censer",
+      "fr": "encensoir"
+    },
+    "кадильница": {
+      "en": "censer",
+      "fr": "encensoir"
+    },
+    "каждение": {
+      "en": "censing",
+      "fr": "encensement"
+    },
+    "канон": {
+      "en": "canon (hymn)",
+      "fr": "canon (hymne)"
+    },
+    "кондак": {
+      "en": "kontakion",
+      "fr": "kondakion"
+    },
+    "копие": {
+      "en": "liturgical spear / lance",
+      "fr": "lance liturgique"
+    },
+    "крестный ход": {
+      "en": "procession with the cross",
+      "fr": "procession avec la croix"
+    },
+    "крещение": {
+      "en": "Baptism",
+      "fr": "Baptême"
+    },
+    "лжица": {
+      "en": "Communion spoon",
+      "fr": "cuillère de communion"
+    },
+    "лития": {
+      "en": "litiya",
+      "fr": "litie"
+    },
+    "литургия": {
+      "en": "Divine Liturgy",
+      "fr": "Divine Liturgie"
+    },
+    "литургия преждеосвященных даров": {
+      "en": "Liturgy of the Presanctified Gifts",
+      "fr": "Liturgie des Dons présanctifiés"
+    },
+    "малый вход": {
+      "en": "Little Entrance",
+      "fr": "Petite Entrée"
+    },
+    "мирная ектения": {
+      "en": "litany of peace",
+      "fr": "litanie de paix"
+    },
+    "миропомазание": {
+      "en": "Chrismation",
+      "fr": "Chrismation"
+    },
+    "молебен": {
+      "en": "supplicatory service / moleben",
+      "fr": "office de supplication / molieben"
+    },
+    "на литургию": {
+      "en": "for the Divine Liturgy",
+      "fr": "pour la Divine Liturgie"
+    },
+    "на молебен": {
+      "en": "for a moleben",
+      "fr": "pour un molieben"
+    },
+    "на панихиду": {
+      "en": "for a memorial service",
+      "fr": "pour un office commémoratif"
+    },
+    "на проскомидию": {
+      "en": "for the Proskomedia",
+      "fr": "pour la Proskomédie"
+    },
+    "о здравии": {
+      "en": "for health / for the living",
+      "fr": "pour la santé / pour les vivants"
+    },
+    "о упокоении": {
+      "en": "for the repose",
+      "fr": "pour le repos de l'âme"
+    },
+    "обожение": {
+      "en": "theosis",
+      "fr": "théosis"
+    },
+    "открыть царские врата": {
+      "en": "to open the Royal Doors",
+      "fr": "ouvrir les Portes royales"
+    },
+    "отпевание": {
+      "en": "funeral service",
+      "fr": "office des funérailles"
+    },
+    "отпуст": {
+      "en": "dismissal",
+      "fr": "renvoi liturgique"
+    },
+    "отче наш": {
+      "en": "the Lord's Prayer / Our Father",
+      "fr": "le Notre Père"
+    },
+    "панихида": {
+      "en": "memorial service",
+      "fr": "office commémoratif des défunts"
+    },
+    "плащаница": {
+      "en": "shroud / epitaphios",
+      "fr": "linceul / épitaphios"
+    },
+    "повечерие": {
+      "en": "Compline",
+      "fr": "Complies"
+    },
+    "подать записку": {
+      "en": "to submit a commemoration slip",
+      "fr": "déposer une intention de commémoration"
+    },
+    "подать записочку": {
+      "en": "to submit a prayer / commemoration slip",
+      "fr": "déposer une petite intention de prière"
+    },
+    "покровцы": {
+      "en": "veils for the Holy Gifts",
+      "fr": "voiles pour les Saints Dons"
+    },
+    "полунощница": {
+      "en": "Midnight Office",
+      "fr": "Office de minuit"
+    },
+    "поминовение": {
+      "en": "commemoration",
+      "fr": "commémoration"
+    },
+    "помянник": {
+      "en": "commemoration list / diptych",
+      "fr": "liste de commémoration"
+    },
+    "потир": {
+      "en": "chalice",
+      "fr": "calice"
+    },
+    "преждеосвященные дары": {
+      "en": "the Presanctified Gifts",
+      "fr": "les Dons présanctifiés"
+    },
+    "престол": {
+      "en": "Holy Table / altar table",
+      "fr": "Sainte Table / autel"
+    },
+    "причастен": {
+      "en": "Communion hymn",
+      "fr": "chant de communion"
+    },
+    "причастие": {
+      "en": "Holy Communion",
+      "fr": "Sainte Communion"
+    },
+    "прокимен": {
+      "en": "prokeimenon",
+      "fr": "prokimenon"
+    },
+    "проскомидия": {
+      "en": "Proskomedia",
+      "fr": "Proskomédie"
+    },
+    "просфора": {
+      "en": "prosphora",
+      "fr": "prosphore"
+    },
+    "просфоры": {
+      "en": "prosphoras",
+      "fr": "prosphores"
+    },
+    "святая чаша": {
+      "en": "the Holy Chalice",
+      "fr": "le Saint Calice"
+    },
+    "святые дары": {
+      "en": "the Holy Gifts",
+      "fr": "les Saints Dons"
+    },
+    "символ веры": {
+      "en": "the Creed",
+      "fr": "le Symbole de foi"
+    },
+    "соборование": {
+      "en": "Holy Unction / communal anointing",
+      "fr": "Sainte Onction / onction communautaire"
+    },
+    "сорокоуст": {
+      "en": "Sorokoust (forty-day commemoration)",
+      "fr": "Sorokoust (commémoration de quarante jours)"
+    },
+    "стихира": {
+      "en": "sticheron",
+      "fr": "stichère"
+    },
+    "сугубая ектения": {
+      "en": "augmented litany",
+      "fr": "litanie insistante"
+    },
+    "таинства": {
+      "en": "sacraments / holy mysteries",
+      "fr": "sacrements / saints mystères"
+    },
+    "таинство": {
+      "en": "sacrament / holy mystery",
+      "fr": "sacrement / saint mystère"
+    },
+    "теплота": {
+      "en": "warm water added to the chalice",
+      "fr": "eau chaude ajoutée au calice"
+    },
+    "тропарь": {
+      "en": "troparion",
+      "fr": "tropaire"
+    },
+    "утреня": {
+      "en": "Matins",
+      "fr": "Matines"
+    },
+    "херувимская песнь": {
+      "en": "Cherubic Hymn",
+      "fr": "Hymne des Chérubins"
+    },
+    "царские часы": {
+      "en": "Royal Hours",
+      "fr": "Heures royales"
+    },
+    "частица": {
+      "en": "particle (of prosphora)",
+      "fr": "particule (de prosphore)"
+    },
+    "частицы": {
+      "en": "particles (of prosphora)",
+      "fr": "particules (de prosphore)"
+    },
+    "часы": {
+      "en": "the Hours",
+      "fr": "les Heures"
+    },
+    "чаша": {
+      "en": "the chalice",
+      "fr": "le calice"
+    }
+  },
+  "monastic_terms": {
+    "архимандрит": {
+      "en": "archimandrite",
+      "fr": "archimandrite"
+    },
+    "игумен": {
+      "en": "hegumen / abbot",
+      "fr": "higoumène / abbé"
+    },
+    "игумения": {
+      "en": "abbess",
+      "fr": "higoumène / abbesse"
+    },
+    "инок": {
+      "en": "monastic / monk",
+      "fr": "moine"
+    },
+    "инокиня": {
+      "en": "nun",
+      "fr": "moniale"
+    },
+    "келья": {
+      "en": "cell",
+      "fr": "cellule"
+    },
+    "монастырь": {
+      "en": "monastery",
+      "fr": "monastère"
+    },
+    "монах": {
+      "en": "monk",
+      "fr": "moine"
+    },
+    "монахиня": {
+      "en": "nun",
+      "fr": "moniale"
+    },
+    "монашеский постриг": {
+      "en": "monastic tonsure",
+      "fr": "tonsure monastique"
+    },
+    "обитель": {
+      "en": "monastic community / monastery",
+      "fr": "communauté monastique / monastère"
+    },
+    "отшельник": {
+      "en": "hermit",
+      "fr": "ermite"
+    },
+    "послушник": {
+      "en": "novice",
+      "fr": "novice"
+    },
+    "послушница": {
+      "en": "female novice",
+      "fr": "novice"
+    },
+    "постриг": {
+      "en": "tonsure",
+      "fr": "tonsure monastique"
+    },
+    "пустынник": {
+      "en": "desert-dweller / hermit",
+      "fr": "anachorète / ermite"
+    },
+    "скит": {
+      "en": "skete",
+      "fr": "skite"
+    },
+    "схима": {
+      "en": "schema (highest monastic rank)",
+      "fr": "schème (grand habit monastique)"
+    },
+    "схимник": {
+      "en": "monk of the Great Schema",
+      "fr": "moine du grand schème"
+    },
+    "устав": {
+      "en": "typikon / rule",
+      "fr": "typikon / règle"
+    }
+  },
+  "pastoral_context": {
+    "Господи помилуй": {
+      "en": "Lord, have mercy",
+      "fr": "Seigneur, aie pitié"
+    },
+    "Господь управит": {
+      "en": "the Lord will set things right",
+      "fr": "le Seigneur arrangera les choses"
+    },
+    "батюшка": {
+      "en": "Father",
+      "fr": "Père"
+    },
+    "батюшке": {
+      "en": "to Father / for Father",
+      "fr": "au Père / pour le Père"
+    },
+    "беда": {
+      "en": "affliction / trial",
+      "fr": "épreuve / affliction"
+    },
+    "благоговение": {
+      "en": "reverence",
+      "fr": "révérence / piété"
+    },
+    "благословение": {
+      "en": "blessing",
+      "fr": "bénédiction"
+    },
+    "благословите": {
+      "en": "Father, bless / give your blessing",
+      "fr": "bénissez-moi / donnez votre bénédiction"
+    },
+    "болящая": {
+      "en": "the ailing / the suffering",
+      "fr": "la souffrante"
+    },
+    "болящий": {
+      "en": "the ailing / the suffering",
+      "fr": "le souffrant"
+    },
+    "вечная память": {
+      "en": "Memory eternal",
+      "fr": "Mémoire éternelle"
+    },
+    "взять благословение": {
+      "en": "to receive a blessing",
+      "fr": "recevoir une bénédiction"
+    },
+    "виновата перед Господом": {
+      "en": "I have sinned before the Lord",
+      "fr": "j'ai péché devant le Seigneur"
+    },
+    "воцерковиться": {
+      "en": "to become integrated into church life",
+      "fr": "s'intégrer à la vie de l'Église"
+    },
+    "воцерковление": {
+      "en": "becoming churched / entering church life",
+      "fr": "entrée dans la vie ecclésiale"
+    },
+    "вразумление": {
+      "en": "admonition / enlightenment",
+      "fr": "instruction / éclaircissement"
+    },
+    "гордость": {
+      "en": "pride",
+      "fr": "orgueil"
+    },
+    "грех": {
+      "en": "sin",
+      "fr": "péché"
+    },
+    "грехи": {
+      "en": "sins",
+      "fr": "péchés"
+    },
+    "грешен": {
+      "en": "I am sinful / I am a sinner",
+      "fr": "je suis pécheur"
+    },
+    "грешна": {
+      "en": "I am sinful / I am a sinner",
+      "fr": "je suis pécheresse"
+    },
+    "дай Бог": {
+      "en": "God willing / God grant",
+      "fr": "si Dieu le veut / Dieu accorde"
+    },
+    "дерзновение": {
+      "en": "spiritual boldness / confidence before God",
+      "fr": "hardiesse spirituelle / confiance devant Dieu"
+    },
+    "духовник": {
+      "en": "spiritual father / confessor",
+      "fr": "père spirituel / confesseur"
+    },
+    "духовное чадо": {
+      "en": "spiritual child",
+      "fr": "enfant spirituel"
+    },
+    "здравие": {
+      "en": "health / wellbeing",
+      "fr": "santé / bien-être"
+    },
+    "искушение": {
+      "en": "temptation / trial",
+      "fr": "tentation / épreuve"
+    },
+    "исповедоваться": {
+      "en": "to go to confession",
+      "fr": "se confesser"
+    },
+    "к батюшке": {
+      "en": "to the priest / to Father",
+      "fr": "vers le prêtre / vers le Père"
+    },
+    "каяться": {
+      "en": "to repent",
+      "fr": "se repentir"
+    },
+    "крестик": {
+      "en": "baptismal cross / little cross",
+      "fr": "croix baptismale / petite croix"
+    },
+    "кротость": {
+      "en": "meekness",
+      "fr": "douceur / mansuétude"
+    },
+    "любовь к ближнему": {
+      "en": "love for one's neighbor",
+      "fr": "amour du prochain"
+    },
+    "маловерие": {
+      "en": "lack of faith / weak faith",
+      "fr": "manque de foi / foi faible"
+    },
+    "малодушие": {
+      "en": "faintheartedness",
+      "fr": "pusillanimité / découragement"
+    },
+    "матушка": {
+      "en": "Matushka / priest's wife",
+      "fr": "Matushka / épouse du prêtre"
+    },
+    "милость Божия": {
+      "en": "God's mercy",
+      "fr": "la miséricorde de Dieu"
+    },
+    "наставление": {
+      "en": "guidance / instruction",
+      "fr": "direction / enseignement"
+    },
+    "нательный крест": {
+      "en": "pectoral / baptismal cross worn on the body",
+      "fr": "croix portée sur soi"
+    },
+    "не приведи Господь": {
+      "en": "God forbid",
+      "fr": "à Dieu ne plaise"
+    },
+    "неофит": {
+      "en": "newly converted believer / neophyte",
+      "fr": "néophyte"
+    },
+    "нести свой крест": {
+      "en": "to bear one's cross",
+      "fr": "porter sa croix"
+    },
+    "новопреставленный": {
+      "en": "newly departed",
+      "fr": "nouvellement décédé"
+    },
+    "ожесточение сердца": {
+      "en": "hardening of the heart",
+      "fr": "endurcissement du cœur"
+    },
+    "по милости Божией": {
+      "en": "by God's mercy",
+      "fr": "par la miséricorde de Dieu"
+    },
+    "покаяние": {
+      "en": "repentance",
+      "fr": "repentance"
+    },
+    "покаяться": {
+      "en": "to repent",
+      "fr": "se repentir"
+    },
+    "послушание": {
+      "en": "obedience",
+      "fr": "obéissance"
+    },
+    "прелесть": {
+      "en": "spiritual delusion",
+      "fr": "illusion spirituelle"
+    },
+    "причащаться": {
+      "en": "to receive Holy Communion",
+      "fr": "communier"
+    },
+    "промысл Божий": {
+      "en": "God's providence",
+      "fr": "la providence de Dieu"
+    },
+    "просить благословения": {
+      "en": "to ask for a blessing",
+      "fr": "demander une bénédiction"
+    },
+    "раб Божий": {
+      "en": "servant of God",
+      "fr": "serviteur de Dieu"
+    },
+    "раб божий": {
+      "en": "servant of God",
+      "fr": "serviteur de Dieu"
+    },
+    "раба Божия": {
+      "en": "handmaid / servant of God",
+      "fr": "servante de Dieu"
+    },
+    "раба божия": {
+      "en": "handmaid / servant of God",
+      "fr": "servante de Dieu"
+    },
+    "с Божией помощью": {
+      "en": "with God's help",
+      "fr": "avec l'aide de Dieu"
+    },
+    "скорби": {
+      "en": "sorrows / afflictions",
+      "fr": "chagrins / afflictions"
+    },
+    "скорбь": {
+      "en": "sorrow / affliction",
+      "fr": "chagrin / affliction"
+    },
+    "слава Богу": {
+      "en": "glory to God",
+      "fr": "gloire à Dieu"
+    },
+    "смирение": {
+      "en": "humility",
+      "fr": "humilité"
+    },
+    "смиряться": {
+      "en": "to humble oneself",
+      "fr": "s'humilier / faire preuve d'humilité"
+    },
+    "соблазн": {
+      "en": "stumbling block / scandal / temptation",
+      "fr": "scandale / occasion de chute"
+    },
+    "согрешил": {
+      "en": "I have sinned",
+      "fr": "j'ai péché"
+    },
+    "согрешила": {
+      "en": "I have sinned",
+      "fr": "j'ai péché"
+    },
+    "спасение": {
+      "en": "salvation",
+      "fr": "salut"
+    },
+    "спаси Господи": {
+      "en": "God save you / may the Lord save you",
+      "fr": "que le Seigneur vous sauve"
+    },
+    "старец": {
+      "en": "elder",
+      "fr": "starets / ancien spirituel"
+    },
+    "старица": {
+      "en": "elder woman / spiritual mother",
+      "fr": "ancienne / mère spirituelle"
+    },
+    "страждущая": {
+      "en": "the suffering",
+      "fr": "la souffrante"
+    },
+    "страждущий": {
+      "en": "the suffering",
+      "fr": "le souffrant"
+    },
+    "страх Божий": {
+      "en": "fear of God",
+      "fr": "crainte de Dieu"
+    },
+    "терпение": {
+      "en": "patience",
+      "fr": "patience"
+    },
+    "трезвение": {
+      "en": "watchfulness / spiritual sobriety",
+      "fr": "vigilance / sobriété spirituelle"
+    },
+    "тщеславие": {
+      "en": "vanity",
+      "fr": "vanité"
+    },
+    "у батюшки": {
+      "en": "with the priest / with Father",
+      "fr": "chez le prêtre / auprès du Père"
+    },
+    "уныние": {
+      "en": "despondency",
+      "fr": "abattement / acédie"
+    },
+    "упокой": {
+      "en": "grant rest",
+      "fr": "accorde le repos"
+    },
+    "усопшая": {
+      "en": "the departed",
+      "fr": "la défunte"
+    },
+    "усопший": {
+      "en": "the departed",
+      "fr": "le défunt"
+    },
+    "храни Господь": {
+      "en": "may the Lord protect",
+      "fr": "que le Seigneur protège"
+    },
+    "царствие небесное": {
+      "en": "the Kingdom of Heaven",
+      "fr": "le Royaume des cieux"
+    }
+  },
+  "prayer_and_spiritual_life": {
+    "Иисусова молитва": {
+      "en": "Jesus Prayer",
+      "fr": "Prière de Jésus"
+    },
+    "бдение": {
+      "en": "vigil / wakeful prayer",
+      "fr": "veille / prière vigilante"
+    },
+    "безмолвие": {
+      "en": "silence / hesychia",
+      "fr": "silence / hésychia"
+    },
+    "бодрствование": {
+      "en": "watchfulness",
+      "fr": "vigilance"
+    },
+    "борьба со страстями": {
+      "en": "struggle against the passions",
+      "fr": "lutte contre les passions"
+    },
+    "вечернее правило": {
+      "en": "evening prayers",
+      "fr": "prières du soir"
+    },
+    "воздержание": {
+      "en": "abstinence / self-restraint",
+      "fr": "abstinence / maîtrise de soi"
+    },
+    "добродетель": {
+      "en": "virtue",
+      "fr": "vertu"
+    },
+    "духовная брань": {
+      "en": "spiritual warfare",
+      "fr": "combat spirituel"
+    },
+    "земной поклон": {
+      "en": "full prostration",
+      "fr": "grande prosternation"
+    },
+    "милостыня": {
+      "en": "almsgiving",
+      "fr": "aumône"
+    },
+    "мир душевный": {
+      "en": "inner peace",
+      "fr": "paix intérieure"
+    },
+    "молитва": {
+      "en": "prayer",
+      "fr": "prière"
+    },
+    "молитва по соглашению": {
+      "en": "prayer by agreement",
+      "fr": "prière en accord"
+    },
+    "молитвенное правило": {
+      "en": "prayer rule",
+      "fr": "règle de prière"
+    },
+    "отречение от своей воли": {
+      "en": "renunciation of one's own will",
+      "fr": "renoncement à sa propre volonté"
+    },
+    "охлаждение": {
+      "en": "spiritual coldness",
+      "fr": "froideur spirituelle"
+    },
+    "память смертная": {
+      "en": "remembrance of death",
+      "fr": "mémoire de la mort"
+    },
+    "пост": {
+      "en": "fast / fasting",
+      "fr": "jeûne"
+    },
+    "поститься": {
+      "en": "to fast",
+      "fr": "jeûner"
+    },
+    "поясной поклон": {
+      "en": "bow from the waist",
+      "fr": "inclination profonde"
+    },
+    "псалтирь": {
+      "en": "Psalter",
+      "fr": "Psautier"
+    },
+    "рассеянность в молитве": {
+      "en": "distraction in prayer",
+      "fr": "distraction dans la prière"
+    },
+    "сердечная молитва": {
+      "en": "prayer of the heart",
+      "fr": "prière du cœur"
+    },
+    "сердечное сокрушение": {
+      "en": "compunction / heartfelt contrition",
+      "fr": "compunction / contrition du cœur"
+    },
+    "сокрушение": {
+      "en": "contrition",
+      "fr": "contrition"
+    },
+    "страсть": {
+      "en": "passion (sinful passion)",
+      "fr": "passion (au sens spirituel)"
+    },
+    "умная молитва": {
+      "en": "prayer of the mind / noetic prayer",
+      "fr": "prière de l'intellect / prière noétique"
+    },
+    "утреннее правило": {
+      "en": "morning prayers",
+      "fr": "prières du matin"
+    },
+    "читать псалтирь": {
+      "en": "to read the Psalter",
+      "fr": "lire le Psautier"
+    }
+  },
+  "superstitious_traps": {
+    "амулет": {
+      "en": "amulet",
+      "fr": "amulette"
+    },
+    "астрология": {
+      "en": "astrology",
+      "fr": "astrologie"
+    },
+    "бабка": {
+      "en": "folk healer / sorceress (in superstitious context)",
+      "fr": "guérisseuse traditionnelle / sorcière (contexte superstitieux)"
+    },
+    "бабушка лечит": {
+      "en": "an old woman 'heals' using folk / occult methods",
+      "fr": "une vieille femme 'soigne' par des méthodes populaires / occultes"
+    },
+    "биоэнергет": {
+      "en": "bioenergetic healer",
+      "fr": "bioénergéticien"
+    },
+    "ворожба": {
+      "en": "fortune-telling / magic",
+      "fr": "divination / magie"
+    },
+    "ворожить": {
+      "en": "to practice magic / fortune-telling",
+      "fr": "faire de la magie / de la divination"
+    },
+    "вычитывать": {
+      "en": "to recite prayers over someone as a ritual remedy (often superstitiously understood)",
+      "fr": "réciter des prières sur quelqu'un comme remède rituel (souvent compris superstitieusement)"
+    },
+    "гадалка": {
+      "en": "fortune-teller",
+      "fr": "voyante"
+    },
+    "гадание": {
+      "en": "divination / fortune-telling",
+      "fr": "divination / voyance"
+    },
+    "гадать": {
+      "en": "to tell fortunes / to divine",
+      "fr": "tirer les cartes / pratiquer la divination"
+    },
+    "гороскоп": {
+      "en": "horoscope",
+      "fr": "horoscope"
+    },
+    "заговаривать": {
+      "en": "to cast an incantation / to charm",
+      "fr": "jeter une incantation / charmer"
+    },
+    "заговор": {
+      "en": "incantation / spell",
+      "fr": "incantation / sortilège"
+    },
+    "заговоренная вода": {
+      "en": "water over which a spell was spoken",
+      "fr": "eau sur laquelle une formule a été prononcée"
+    },
+    "заговоры": {
+      "en": "spells / incantations",
+      "fr": "sortilèges / incantations"
+    },
+    "карма": {
+      "en": "karma",
+      "fr": "karma"
+    },
+    "колдовство": {
+      "en": "sorcery / witchcraft",
+      "fr": "sorcellerie"
+    },
+    "колдун": {
+      "en": "sorcerer",
+      "fr": "sorcier"
+    },
+    "колдунья": {
+      "en": "sorceress",
+      "fr": "sorcière"
+    },
+    "красная нить": {
+      "en": "red string amulet",
+      "fr": "fil rouge protecteur"
+    },
+    "маг": {
+      "en": "magician / occult practitioner",
+      "fr": "mage / occultiste"
+    },
+    "магическое мышление": {
+      "en": "magical thinking",
+      "fr": "pensée magique"
+    },
+    "навести порчу": {
+      "en": "to cast a curse",
+      "fr": "jeter un maléfice"
+    },
+    "натальная карта": {
+      "en": "natal chart",
+      "fr": "thème astral"
+    },
+    "оберег": {
+      "en": "protective charm",
+      "fr": "talisman protecteur"
+    },
+    "обереги": {
+      "en": "protective charms",
+      "fr": "talismans protecteurs"
+    },
+    "обряд на деньги": {
+      "en": "money-attracting ritual",
+      "fr": "rituel pour attirer l'argent"
+    },
+    "обряд на удачу": {
+      "en": "ritual for luck",
+      "fr": "rituel pour la chance"
+    },
+    "отворот": {
+      "en": "spell to drive affection away",
+      "fr": "sortilège pour détourner l'affection"
+    },
+    "отчитали": {
+      "en": "ritual prayers were performed over someone",
+      "fr": "des prières rituelles ont été lues sur quelqu'un"
+    },
+    "отчитать": {
+      "en": "to perform ritual prayers over someone (often superstitiously understood)",
+      "fr": "faire des prières rituelles sur quelqu'un (souvent compris de manière superstitieuse)"
+    },
+    "отчитка": {
+      "en": "ritual exorcism-like reading / 'otchitka'",
+      "fr": "lecture rituelle de type exorcisme / 'otchitka'"
+    },
+    "отчитывать": {
+      "en": "to perform ritual prayers over someone (often superstitiously understood)",
+      "fr": "faire des prières rituelles sur quelqu'un (souvent compris de manière superstitieuse)"
+    },
+    "порча": {
+      "en": "curse / hex",
+      "fr": "sort / maléfice"
+    },
+    "порчу навели": {
+      "en": "a curse was cast",
+      "fr": "un maléfice a été jeté"
+    },
+    "приворот": {
+      "en": "love spell",
+      "fr": "sortilège d'amour"
+    },
+    "присушка": {
+      "en": "binding love spell",
+      "fr": "sort d'attachement amoureux"
+    },
+    "ритуал": {
+      "en": "ritual (occult context)",
+      "fr": "rituel (contexte occulte)"
+    },
+    "руками разводят": {
+      "en": "are at a loss / shrug in helplessness",
+      "fr": "sont désemparés / haussent les épaules"
+    },
+    "сглаз": {
+      "en": "evil eye",
+      "fr": "mauvais œil"
+    },
+    "сглазили": {
+      "en": "someone cast the evil eye",
+      "fr": "quelqu'un a jeté le mauvais œil"
+    },
+    "сглазить": {
+      "en": "to cast the evil eye",
+      "fr": "jeter le mauvais œil"
+    },
+    "снимать порчу": {
+      "en": "to remove a curse",
+      "fr": "enlever un maléfice"
+    },
+    "снять порчу": {
+      "en": "to remove a curse",
+      "fr": "enlever un maléfice"
+    },
+    "талисман": {
+      "en": "talisman",
+      "fr": "talisman"
+    },
+    "чакры": {
+      "en": "chakras",
+      "fr": "chakras"
+    },
+    "шептуха": {
+      "en": "whisper-healer / folk spell caster",
+      "fr": "guérisseuse aux incantations murmurées"
+    },
+    "экстрасенс": {
+      "en": "psychic",
+      "fr": "médium / voyant"
+    },
+    "энергетика": {
+      "en": "energy field / energies (esoteric context)",
+      "fr": "énergie / champ énergétique (contexte ésotérique)"
+    },
+    "ясновидящая": {
+      "en": "clairvoyant woman",
+      "fr": "clairvoyante"
+    }
+  }
+}
