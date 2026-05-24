@@ -3,23 +3,93 @@ package auth
 import (
 	"Derzhavnaya/internal/db"
 	"Derzhavnaya/internal/models"
+	"context"
 	"net"
 	"net/http"
 	"strings"
 	"sync"
 	"time"
+
+	"github.com/rs/zerolog/log"
+	"go.uber.org/fx"
 )
 
+type limiterEntry struct {
+	count     int
+	updatedAt time.Time
+}
+
 type RateLimiter struct {
-	attempts map[string]int
+	attempts map[string]limiterEntry
 	mu       sync.Mutex
 }
 
-func NewRateLimiter() *RateLimiter {
-	return &RateLimiter{attempts: make(map[string]int)}
+func NewRateLimiter(lc fx.Lifecycle) *RateLimiter {
+	rl := &RateLimiter{
+		attempts: make(map[string]limiterEntry),
+	}
+
+	_, cancel := context.WithCancel(context.Background())
+
+	lc.Append(fx.Hook{
+		OnStart: func(ctx context.Context) error {
+			log.Info().Msg("Starting RateLimiter cleanup loop...")
+			go rl.cleanupLoop(ctx)
+			return nil
+		},
+		OnStop: func(ctx context.Context) error {
+			log.Info().Msg("Stopping RateLimiter cleanup loop...")
+			cancel()
+			return nil
+		},
+	})
+
+	return rl
 }
 
-// GetIP достает реальный IP пользователя с учетом Traefik
+func (rl *RateLimiter) Allow(ip string) bool {
+	rl.mu.Lock()
+	defer rl.mu.Unlock()
+
+	now := time.Now()
+	entry, exists := rl.attempts[ip]
+
+	if exists && now.Sub(entry.updatedAt) > 15*time.Minute {
+		entry.count = 0
+	}
+
+	if entry.count >= 5 {
+		return false
+	}
+
+	entry.count++
+	entry.updatedAt = now
+	rl.attempts[ip] = entry
+
+	return true
+}
+
+func (rl *RateLimiter) cleanupLoop(ctx context.Context) {
+	ticker := time.NewTicker(1 * time.Minute)
+	defer ticker.Stop()
+
+	for {
+		select {
+		case <-ctx.Done():
+			return
+		case <-ticker.C:
+			rl.mu.Lock()
+			now := time.Now()
+			for ip, entry := range rl.attempts {
+				if now.Sub(entry.updatedAt) > 15*time.Minute {
+					delete(rl.attempts, ip)
+				}
+			}
+			rl.mu.Unlock()
+		}
+	}
+}
+
 func GetIP(r *http.Request) string {
 	if ip := r.Header.Get("X-Real-Ip"); ip != "" {
 		return ip
@@ -29,27 +99,6 @@ func GetIP(r *http.Request) string {
 	}
 	host, _, _ := net.SplitHostPort(r.RemoteAddr)
 	return host
-}
-
-// Allow проверяет, не превысил ли IP лимит (например, 5 попыток)
-func (rl *RateLimiter) Allow(ip string) bool {
-	rl.mu.Lock()
-	defer rl.mu.Unlock()
-
-	if rl.attempts[ip] >= 5 {
-		return false
-	}
-	rl.attempts[ip]++
-
-	// Очистим счетчик через 15 минут (упрощенно)
-	go func() {
-		time.Sleep(15 * time.Minute)
-		rl.mu.Lock()
-		delete(rl.attempts, ip)
-		rl.mu.Unlock()
-	}()
-
-	return true
 }
 
 func FilterMenuByRole(items []db.WebMenuItem, userRole string) []models.MenuItem {

@@ -30,7 +30,7 @@ passwd = "q1"
 litellm_uri = "https://so-secret-wow"
 litellm_key = "sk-lol-kek-cheburek"
 model_name = "ollama/llama3.2"
-timeout_sec = 180
+timeout_sec = 6000
 
 [translation.prompts]
 en = """

@@ -6,8 +6,11 @@ type LLMMessage struct {
 }
 
 type LLMPayload struct {
-	Model    string       `json:"model"`
-	Messages []LLMMessage `json:"messages"`
+	Model       string       `json:"model"`
+	Messages    []LLMMessage `json:"messages"`
+	Temperature float64      `json:"temperature,omitempty"`
+	TopP        float64      `json:"top_p,omitempty"`
+	MaxTokens   int          `json:"max_tokens,omitempty"`
 }
 
 type LLMResponse struct {

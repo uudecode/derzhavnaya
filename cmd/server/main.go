@@ -14,33 +14,19 @@ import (
 	"context"
 	"os"
 
+	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 	"go.uber.org/fx"
 )
 
 func main() {
-	if len(os.Args) > 1 {
-		switch os.Args[1] {
-		case "import-glossary":
-			cfg, err := config.Load()
-			if err != nil {
-				log.Fatal().Err(err).Msg("Failed to load config")
-				return
-			}
-			pool, err := db.NewDatabasePool(cfg)
-			if err != nil {
-				log.Fatal().Err(err).Msg("Failed to create database pool")
-				return
-			}
-			defer pool.Close()
-			if err := tools.RunGlossaryImport(context.Background(), pool, "/glossary.json"); err != nil {
-				log.Fatal().Err(err).Msg("glossary import failed")
-			}
-			return
-		}
-	}
 	log.Logger = log.Output(zerolog.ConsoleWriter{Out: os.Stderr})
+
+	if len(os.Args) > 1 && os.Args[1] == "import-glossary" {
+		runGlossaryImportCLI()
+		return
+	}
 
 	app := fx.New(
 		config.Module,
@@ -55,6 +41,30 @@ func main() {
 		fx.Invoke(
 			translation.StartTranslationWorker,
 		),
+	)
+
+	app.Run()
+}
+
+func runGlossaryImportCLI() {
+	app := fx.New(
+		config.Module,
+		logger.Module,
+		db.Module,
+
+		fx.Invoke(func(pool *pgxpool.Pool, sd fx.Shutdowner) {
+			log.Info().Msg("Starting glossary import from CLI...")
+			if err := tools.RunGlossaryImport(context.Background(), pool, "glossary.json"); err != nil {
+				log.Error().Err(err).Msg("Glossary import failed")
+				_ = sd.Shutdown(fx.ExitCode(1))
+				return
+			}
+
+			log.Info().Msg("Glossary import completed successfully!")
+			_ = sd.Shutdown(fx.ExitCode(0))
+		}),
+
+		fx.NopLogger,
 	)
 
 	app.Run()

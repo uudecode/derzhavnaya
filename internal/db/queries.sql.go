@@ -177,6 +177,68 @@ func (q *Queries) GetAnsweredQuestionsPaginated(ctx context.Context, arg GetAnsw
 	return items, nil
 }
 
+const getEnglishGlossary = `-- name: GetEnglishGlossary :many
+SELECT category, ru_term, en_trans
+  FROM web.glossary
+`
+
+type GetEnglishGlossaryRow struct {
+	Category string
+	RuTerm   string
+	EnTrans  pgtype.Text
+}
+
+func (q *Queries) GetEnglishGlossary(ctx context.Context) ([]GetEnglishGlossaryRow, error) {
+	rows, err := q.db.Query(ctx, getEnglishGlossary)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var items []GetEnglishGlossaryRow
+	for rows.Next() {
+		var i GetEnglishGlossaryRow
+		if err := rows.Scan(&i.Category, &i.RuTerm, &i.EnTrans); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
+const getFrenchGlossary = `-- name: GetFrenchGlossary :many
+SELECT category, ru_term, fr_trans
+FROM web.glossary
+`
+
+type GetFrenchGlossaryRow struct {
+	Category string
+	RuTerm   string
+	FrTrans  pgtype.Text
+}
+
+func (q *Queries) GetFrenchGlossary(ctx context.Context) ([]GetFrenchGlossaryRow, error) {
+	rows, err := q.db.Query(ctx, getFrenchGlossary)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var items []GetFrenchGlossaryRow
+	for rows.Next() {
+		var i GetFrenchGlossaryRow
+		if err := rows.Scan(&i.Category, &i.RuTerm, &i.FrTrans); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
 const getTranslation = `-- name: GetTranslation :one
 SELECT id, key, lang, value
   FROM web.translation

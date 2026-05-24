@@ -160,6 +160,14 @@ type WebGalleryPhotoTranslation struct {
 	Caption pgtype.Text
 }
 
+type WebGlossary struct {
+	ID       int32
+	Category string
+	RuTerm   string
+	EnTrans  pgtype.Text
+	FrTrans  pgtype.Text
+}
+
 type WebMenuItem struct {
 	ID        pgtype.UUID
 	Position  int16
@@ -169,14 +177,6 @@ type WebMenuItem struct {
 	IsActive  bool
 	CreatedAt time.Time
 	Role      pgtype.Text
-}
-
-type WebMenuItemTranslation struct {
-	CategoryID  int32
-	Locale      string
-	Title       string
-	Slug        string
-	Description string
 }
 
 type WebSession struct {

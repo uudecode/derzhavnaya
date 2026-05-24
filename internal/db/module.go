@@ -15,27 +15,41 @@ var Module = fx.Options(
 	fx.Provide(NewQueries),
 )
 
-func NewDatabasePool(cfg *config.Config) (*pgxpool.Pool, error) {
-	pool, err := Prepare(context.Background(), cfg)
-	if err != nil {
-		return nil, err
-	}
-
-	if err := pool.Ping(context.Background()); err != nil {
-		pool.Close()
-		return nil, fmt.Errorf("ping db: %w", err)
-	}
-
-	return pool, nil
-}
-
 func NewDatabasePoolFx(lc fx.Lifecycle, cfg *config.Config) (*pgxpool.Pool, error) {
-	pool, err := NewDatabasePool(cfg)
+	dsn := cfg.Database.DSN()
+
+	poolConfig, err := pgxpool.ParseConfig(dsn)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("failed to parse pgx config: %w", err)
+	}
+
+	pool, err := pgxpool.NewWithConfig(context.Background(), poolConfig)
+	if err != nil {
+		return nil, fmt.Errorf("failed to create pool structure: %w", err)
 	}
 
 	lc.Append(fx.Hook{
+		OnStart: func(ctx context.Context) error {
+			log.Info().Msg("Running database migrations...")
+			if err := runMigrations(dsn); err != nil {
+				return fmt.Errorf("migrations failed on start: %w", err)
+			}
+
+			log.Info().Msg("Pinging database pool...")
+			if err := pool.Ping(ctx); err != nil {
+				return fmt.Errorf("database ping failed on start: %w", err)
+			}
+
+			if cfg.InitialAdmin.Email != "" {
+				log.Info().Msg("Seeding initial admin...")
+				if err := seedAdmin(ctx, pool, cfg.InitialAdmin); err != nil {
+					log.Error().Err(err).Msg("failed to seed initial admin")
+				}
+			}
+
+			log.Info().Msg("Database is fully ready and initialized.")
+			return nil
+		},
 		OnStop: func(ctx context.Context) error {
 			log.Info().Msg("Closing database pool...")
 			pool.Close()

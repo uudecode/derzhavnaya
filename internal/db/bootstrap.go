@@ -26,33 +26,16 @@ func (l *gooseLogger) Fatalf(format string, v ...any) {
 	log.Fatal().Msgf(strings.TrimRight(fmt.Sprintf(format, v...), "\n"))
 }
 
-func Prepare(ctx context.Context, cfg *config.Config) (*pgxpool.Pool, error) {
-	dsn := cfg.Database.DSN()
-
-	if err := runMigrations(dsn); err != nil {
-		return nil, fmt.Errorf("migrations: %w", err)
-	}
-
-	pool, err := pgxpool.New(ctx, dsn)
-	if err != nil {
-		return nil, fmt.Errorf("pool connect: %w", err)
-	}
-
-	if cfg.InitialAdmin.Email != "" {
-		if err := seedAdmin(ctx, pool, cfg.InitialAdmin); err != nil {
-			log.Error().Err(err).Msg("failed to seed initial admin")
-		}
-	}
-
-	return pool, nil
-}
-
 func runMigrations(dsn string) error {
 	sqlDB, err := sql.Open("pgx", dsn)
 	if err != nil {
 		return err
 	}
-	defer sqlDB.Close()
+	defer func(sqlDB *sql.DB) {
+		if closeErr := sqlDB.Close(); closeErr != nil {
+			log.Error().Err(closeErr).Msg("failed to close database connection")
+		}
+	}(sqlDB)
 
 	goose.SetLogger(&gooseLogger{})
 	goose.SetBaseFS(schema.MigrationsFS)

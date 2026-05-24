@@ -47,3 +47,11 @@ SELECT *
   FROM web.translation
 WHERE key = @key
   AND lang = @lang;
+
+-- name: GetEnglishGlossary :many
+SELECT category, ru_term, en_trans
+  FROM web.glossary;
+
+-- name: GetFrenchGlossary :many
+SELECT category, ru_term, fr_trans
+FROM web.glossary;

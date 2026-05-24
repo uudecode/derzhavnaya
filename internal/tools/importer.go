@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/rs/zerolog/log"
 )
@@ -34,7 +35,11 @@ func RunGlossaryImport(ctx context.Context, pool *pgxpool.Pool, fileName string)
 	if err != nil {
 		return fmt.Errorf("begin transaction: %w", err)
 	}
-	defer tx.Rollback(ctx)
+	defer func(tx pgx.Tx, ctx context.Context) {
+		if rollbackErr := tx.Rollback(ctx); rollbackErr != nil {
+			log.Error().Err(rollbackErr).Msg("failed to rollback transaction")
+		}
+	}(tx, ctx)
 
 	stmt := `
 		INSERT INTO web.glossary (category, ru_term, en_trans, fr_trans)
@@ -57,6 +62,5 @@ func RunGlossaryImport(ctx context.Context, pool *pgxpool.Pool, fileName string)
 		return fmt.Errorf("commit transaction: %w", err)
 	}
 
-	log.Info().Msg("Glossary import completed successfully!")
 	return nil
 }
