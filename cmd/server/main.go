@@ -54,7 +54,7 @@ func runGlossaryImportCLI() {
 
 		fx.Invoke(func(pool *pgxpool.Pool, sd fx.Shutdowner) {
 			log.Info().Msg("Starting glossary import from CLI...")
-			if err := tools.RunGlossaryImport(context.Background(), pool, "glossary.json"); err != nil {
+			if err := tools.RunGlossaryImport(context.Background(), pool, "/glossary.json"); err != nil {
 				log.Error().Err(err).Msg("Glossary import failed")
 				_ = sd.Shutdown(fx.ExitCode(1))
 				return
